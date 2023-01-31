@@ -1,0 +1,12 @@
+.item{
+    position: relative;
+}
+
+.item::after {
+    position: absolute;
+    bottom: 0;
+    right:0;
+    height: 10px;
+    width: 10px;
+    background: white;
+}
