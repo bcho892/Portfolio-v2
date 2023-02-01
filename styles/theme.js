@@ -5,7 +5,8 @@ const theme = extendTheme({
         global: (props) => ({
             body: {
                 bg: mode("themeGrey.bg", "themeGrey.bg")(props),
-                overflowX: "hidden"
+                overflowX: "hidden",
+                color: "white"
             },
         }),
     },
@@ -26,7 +27,18 @@ const theme = extendTheme({
             }
         },
         Button: {
+
             variants: {
+                'project': {
+                    borderRadius: '0',
+                    backgroundColor: 'white',
+                    color: 'themeGrey.dark',
+                    _hover: {
+                        bg: "themeRed",
+                        color: "white"
+                    }
+
+                },
                 'landing': {
                     justifyContent: 'flex-start',
                     padding: '0 1rem',

@@ -8,6 +8,7 @@ type Props = {
 export default function NavItem({ text }: Props) {
     return (
         <Text
+            cursor="pointer"
             position={"relative"}
             _after={{
                 content: "''",

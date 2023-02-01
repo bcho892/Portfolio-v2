@@ -8,7 +8,7 @@ import HomeSection from '@/components/homesection'
 import BensonCho from '@/components/bensoncho'
 import SideBar from '@/components/sidebar'
 import AboutSection from '@/components/aboutsection'
-
+import ProjectSection from '@/components/projectsection'
 export default function Home() {
   return (
     <>
@@ -21,8 +21,14 @@ export default function Home() {
       <Navigation />
       <Box className="container">
         <HomeSection />
+      </Box>
+      <Box className="container"
+        margin="auto">
         <AboutSection />
-        
+      </Box>
+      <Box className="container"
+        margin="auto">
+        <ProjectSection />
       </Box>
       <BensonCho />
       <SideBar />

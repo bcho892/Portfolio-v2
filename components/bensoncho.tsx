@@ -1,5 +1,5 @@
 import { Box, Image } from '@chakra-ui/react'
-import React from 'react'
+import { opacity } from '@/styles/presets'
 
 type Props = {}
 
@@ -23,7 +23,7 @@ export default function BensonCho({ }: Props) {
                 minW="1600px"
             >
                 <Image src="/svg/Benson.svg"
-                    opacity="0.3"
+                    opacity={opacity}
                     minW="100%"
                     transform="rotate(-30deg)" />
             </Box>
@@ -35,7 +35,7 @@ export default function BensonCho({ }: Props) {
                 minW="900px"
             >
                 <Image
-                    opacity="0.3"
+                    opacity={opacity}
                     src="/svg/Cho.svg"
                     minW="100%"
                     transform="rotate(-30deg)" />

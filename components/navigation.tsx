@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Text, Heading } from '@chakra-ui/react'
+import { boxShadow } from '@/styles/presets'
 import NavItem from './navitem'
 type Props = {}
 
@@ -18,6 +19,7 @@ export default function Navigation({ }: Props) {
             justifyContent={"center"}
             alignItems={"center"}
             padding={"0 1rem"}
+            boxShadow={boxShadow}
         >
             <Box
                 color={"themeRed"}
