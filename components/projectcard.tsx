@@ -1,11 +1,16 @@
-import React from 'react'
+import { useState } from 'react'
 import { boxShadow } from '@/styles/presets'
-import { Box, Text, Heading, Button, ButtonGroup, Image } from '@chakra-ui/react'
-type Props = {}
+import { Box, Text, Heading, Button, ButtonGroup, Image, useMediaQuery } from '@chakra-ui/react'
+type Props = {
+    name?: string,
+    description?: string,
+    tech?: string[],
+    position?: number
+}
 
 const techStack = (item: string) => {
     return (
-        <Box bg="white" width="fit-content" padding="0 10px">
+        <Box bg="themeGrey.light" width="fit-content" padding="0 10px">
             <Text color="themeRed"
                 fontWeight="600"
             >
@@ -16,6 +21,9 @@ const techStack = (item: string) => {
 }
 
 export default function ProjectCard({ }: Props) {
+    const [smallScreen] = useMediaQuery(`(max-width: 800px)`)
+    const [isOpened, setIsOpened] = useState<boolean>(false)
+
     return (
         <Box
             padding="20px 20px"
@@ -38,7 +46,10 @@ export default function ProjectCard({ }: Props) {
                 cursor="pointer"
                 right="20px"
                 height="1rem"
-                src="/svg/Arrow.svg" />
+                onClick={() => setIsOpened(!isOpened)}
+                transform={isOpened ? "rotate(180deg)" : ""}
+                src="/svg/Arrow.svg"
+                transition="transform .5s" />
             <Box display="flex"
                 flexDir="column"
                 gap=".25rem">
@@ -50,7 +61,7 @@ export default function ProjectCard({ }: Props) {
                     {techStack("love")}
                     {techStack("hate")}
                 </Box>
-                <Box display="grid" gridTemplateColumns="3fr 1fr" alignItems="flex-end">
+                <Box display="grid" gridTemplateColumns={smallScreen ? "1fr" : "3fr 1fr"} alignItems="flex-end">
                     <Text color="themeGrey.light">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus et aspernatur ratione, temporibus animi, asperiores eius aliquam ad maiores harum aut, voluptatibus repellendus consequatur in sunt possimus sint ullam consectetur!
                     </Text>
