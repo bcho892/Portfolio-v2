@@ -1,6 +1,6 @@
 import { Box, Heading, Text, Image } from '@chakra-ui/react'
 import SkillCard from './skillcard'
-import { opacity, sectionHeadingSize } from '@/styles/presets'
+import { opacity, sectionHeadingSize, centerOnBigScreen } from '@/styles/presets'
 type Props = {}
 
 const skills = [{
@@ -29,7 +29,7 @@ export default function AboutSection({ }: Props) {
                 padding="170px 0" color="white" position="relative">
                 <Heading fontSize={sectionHeadingSize}>About Me</Heading>
                 <Box position="absolute"
-                    left="calc(-1 * ((100vw - 1300px) / 2))"
+                    left={centerOnBigScreen}
                     top="170px"
                     width="100vw"
                     zIndex="-1"

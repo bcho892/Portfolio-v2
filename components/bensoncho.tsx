@@ -20,7 +20,7 @@ export default function BensonCho({ }: Props) {
                 zIndex="-1"
 
                 width="140%"
-                minW="1600px"
+                minW="2000px"
             >
                 <Image src="/svg/Benson.svg"
                     opacity={opacity}
@@ -32,7 +32,7 @@ export default function BensonCho({ }: Props) {
                 width="80%"
 
                 left="25%"
-                minW="900px"
+                minW="1100px"
             >
                 <Image
                     opacity={opacity}
