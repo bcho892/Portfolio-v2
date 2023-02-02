@@ -16,7 +16,7 @@ export default function HomeSection({ }: Props) {
                 <Box display={"flex"}
                     flexDir={"column"}
                     gap={"1rem"}>
-                    <Heading as="h1" fontSize={"9xl"}>Hi, I'm Benson</Heading>
+                    <Heading as="h1" fontSize={"9xl"} >Hi, I'm Benson</Heading>
                     <Text
                         marginTop={"-2rem"}
                         fontWeight={"400"}

@@ -38,6 +38,11 @@ const theme = extendTheme({
                 }
             }
         },
+        Heading: {
+            baseStyle:{
+                fontWeight: "200",
+            }
+        },
         Textarea: {
             variants: {
                 'contact': {

@@ -1,14 +1,26 @@
-import React from 'react'
-import { Box, Text, Heading } from '@chakra-ui/react'
+import { useState, useEffect } from 'react'
+import { Box } from '@chakra-ui/react'
 import { boxShadow } from '@/styles/presets'
 import NavItem from './navitem'
-type Props = {}
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+export default function Navigation() {
+    const [oldScroll, setOldScroll] = useState<number>(0);
+    const [isDown, setIsDown] = useState<boolean>(false);
+    const { scrollY } = useScroll();
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        if (latest > oldScroll) {
 
+            setIsDown(true)
+        } else {
 
-
-export default function Navigation({ }: Props) {
+            setIsDown(false)
+        }
+        setOldScroll(latest)
+    })
     return (
         <Box
+            transform={isDown ? "translateY(-5rem)" : "translateY(0)"}
+            transition={"transform .5s, box-shadow .5s"}
             zIndex="999"
             position={'fixed'}
             bg={'themeGrey.dark'}
@@ -19,7 +31,7 @@ export default function Navigation({ }: Props) {
             justifyContent={"center"}
             alignItems={"center"}
             padding={"0 1rem"}
-            boxShadow={boxShadow}
+            boxShadow={isDown ? "" : boxShadow}
         >
             <Box
                 color={"themeRed"}

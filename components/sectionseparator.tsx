@@ -30,9 +30,9 @@ const SectionSeparator = () => {
                 right="0"
             >
 
-                <Heading fontSize={textSize} >Scroll</Heading>
+                <Heading fontWeight="200" fontSize={textSize} >Scroll</Heading>
                 <Image  src="/svg/Arrow.svg" />
-                <Heading fontSize={textSize} >Down</Heading>
+                <Heading fontWeight="200" fontSize={textSize} >Down</Heading>
 
             </Box>
         </>
