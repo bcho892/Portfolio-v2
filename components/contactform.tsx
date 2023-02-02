@@ -15,7 +15,7 @@ const selected = {
 
 export default function ContactForm() {
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-    const [isDone, setIsDone] = useState<boolean>(true);
+    const [isDone, setIsDone] = useState<boolean>(false);
     const handleSubmit = async (event: any) => {
         event.preventDefault();
         setIsSubmitting(true)
