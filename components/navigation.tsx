@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Box } from '@chakra-ui/react'
+import { Box, } from '@chakra-ui/react'
 import { boxShadow } from '@/styles/presets'
 import NavItem from './navitem'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+
+
+
 export default function Navigation() {
     const [oldScroll, setOldScroll] = useState<number>(0);
     const [isDown, setIsDown] = useState<boolean>(false);
