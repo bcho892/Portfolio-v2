@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Image } from '@chakra-ui/react'
+import { Box, Heading, Text, Image, useMediaQuery } from '@chakra-ui/react'
 import SkillCard from './skillcard'
 import { opacity, sectionHeadingSize, centerOnBigScreen } from '@/styles/presets'
 import SectionSeparator from './sectionseparator'
@@ -19,6 +19,7 @@ const skills = [{
 })
 
 export default function AboutSection() {
+    const [smallScreen] = useMediaQuery(`(max-width: 800px)`)
     return (
         <>
             <Box
@@ -54,11 +55,11 @@ export default function AboutSection() {
                             src='/svg/Triangle1.svg' />
                     </Box>
                     <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam error temporibus necessitatibus sint enim fugit, ducimus eos ipsa similique quibusdam?</Text>
-                    <Box display="grid" columnGap="1rem" gridTemplateColumns={"1fr 1fr 1fr"}>
+                    <Box display="grid" gap="1rem" gridTemplateColumns={smallScreen ? "1fr" : "1fr 1fr 1fr"}>
                         {skills}
                     </Box>
                 </Box>
-                <SectionSeparator />
+                <SectionSeparator nextSectionName="Projects" />
             </Box>
         </>
     )

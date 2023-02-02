@@ -20,18 +20,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation />
-      <Box className="container">
+      <Box className="container" id="Home">
         <HomeSection />
       </Box>
-      <Box className="container"
+      <Box className="container" id="About"
         margin="auto">
         <AboutSection />
       </Box>
-      <Box className="container"
+      <Box className="container" id="Projects"
         margin="auto">
         <ProjectSection />
       </Box>
-      <Box className="container"
+      <Box className="container" id="Contact"
         margin="auto">
         <ContactSection />
       </Box>

@@ -21,7 +21,7 @@ export default function HomeSection({ }: Props) {
                         marginTop={"-2rem"}
                         fontWeight={"400"}
                         fontSize={"3xl"}>I love development and learning</Text>
-                    <Button variant={"landing"} textAlign={"left"} width={"70%"}>Read More</Button>
+                    <Button as="a" href="#About" variant={"landing"} textAlign={"left"} width={"70%"}>Read More</Button>
                 </Box>
 
             </Box>

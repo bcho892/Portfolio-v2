@@ -1,6 +1,10 @@
 import { Image, Box, Text, Heading, keyframes } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
+type Props = {
+    nextSectionName: string
+}
+
 const textSize = "xl"
 const animationKeyframes = keyframes`
 0% { transform: translate(0,  0px); }
@@ -10,11 +14,12 @@ const animationKeyframes = keyframes`
 
 const animation = `${animationKeyframes} 2s ease-in-out infinite`;
 
-const SectionSeparator = () => {
+const SectionSeparator = ({ nextSectionName }: Props) => {
     return (
         <>
 
             <Box
+                onClick={() => { window.location.replace(`#${nextSectionName}`) }}
                 userSelect="none"
                 cursor="pointer"
                 as={motion.div}
@@ -31,7 +36,7 @@ const SectionSeparator = () => {
             >
 
                 <Heading fontWeight="200" fontSize={textSize} >Scroll</Heading>
-                <Image  src="/svg/Arrow.svg" />
+                <Image src="/svg/Arrow.svg" />
                 <Heading fontWeight="200" fontSize={textSize} >Down</Heading>
 
             </Box>

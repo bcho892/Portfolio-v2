@@ -20,6 +20,9 @@ const theme = extendTheme({
                 overflowX: "hidden",
                 color: "white"
             },
+            html: {
+                scrollBehaviour: "smooth"
+            }
         }),
     },
     fonts: {
@@ -39,7 +42,7 @@ const theme = extendTheme({
             }
         },
         Heading: {
-            baseStyle:{
+            baseStyle: {
                 fontWeight: "200",
             }
         },

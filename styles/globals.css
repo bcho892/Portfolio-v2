@@ -2,8 +2,8 @@
   --background: #363636;
 }
 
-body {
-  background: var(--background);
+html {
+  scroll-behavior: smooth;
 }
 
 .container {

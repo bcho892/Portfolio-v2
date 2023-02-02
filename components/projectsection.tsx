@@ -77,7 +77,7 @@ export default function ProjectSection() {
                         <Image src="/svg/GitHub.svg" />
                     </Box>
                 </Box>
-                <SectionSeparator />
+                <SectionSeparator nextSectionName="Contact" />
             </Box>
         </>
     )
