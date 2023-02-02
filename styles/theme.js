@@ -1,5 +1,17 @@
 import { extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
+
+export const formEffect = {
+    content: '""',
+    bg: "themeRed",
+    height: "5px",
+    position: "absolute",
+    top: "0",
+    left: "0",
+    width: "100%",
+    transition: "transform .5s",
+}
+
 const theme = extendTheme({
     styles: {
         global: (props) => ({
@@ -26,18 +38,48 @@ const theme = extendTheme({
                 }
             }
         },
-        Button: {
+        Textarea: {
+            variants: {
+                'contact': {
+                    borderRadius: "0",
+                    bg: "themeGrey.dark",
+                    color: "white"
+                }
+            }
+        },
+        Input: {
+            variants: {
+                'contact': {
+                    field: {
+                        position: "relative",
+                        borderRadius: "0",
+                        bg: "themeGrey.dark",
+                        color: "white",
 
+                    }
+                }
+            },
+        },
+        Button: {
             variants: {
                 'project': {
                     borderRadius: '0',
-                    backgroundColor: 'white',
+                    bg: 'white',
                     color: 'themeGrey.dark',
                     _hover: {
                         bg: "themeRed",
                         color: "white"
                     }
 
+                },
+                'submit': {
+                    borderRadius: '0',
+                    bg: "themeRed",
+                    color: "white",
+                    _hover: {
+                        bg: 'white',
+                        color: 'themeGrey.dark',
+                    }
                 },
                 'landing': {
                     justifyContent: 'flex-start',
@@ -62,5 +104,6 @@ const theme = extendTheme({
         }
     }
 })
+
 
 export default theme

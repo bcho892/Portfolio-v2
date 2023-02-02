@@ -1,8 +1,7 @@
-import { Box, Heading, Image } from "@chakra-ui/react"
+import { Box, Heading, Image, Text } from "@chakra-ui/react"
 import { sectionHeadingSize, opacity, centerOnBigScreen } from "@/styles/presets"
 import ProjectCard from "./projectcard"
 import { projects } from "@/content/projects"
-type Props = {}
 
 const projectItems = projects.map((item, index) => {
     return (
@@ -10,10 +9,11 @@ const projectItems = projects.map((item, index) => {
     )
 })
 
-export default function ProjectSection({ }: Props) {
+export default function ProjectSection() {
     return (
         <>
             <Box
+                padding="150px 0"
                 position="relative"
                 display="flex"
                 flexDir="column"
@@ -36,6 +36,36 @@ export default function ProjectSection({ }: Props) {
                 <Heading fontSize={sectionHeadingSize}>Featured Projects</Heading>
                 <Box display="grid" gridTemplateColumns="1fr" rowGap="4rem" padding="50px 0">
                     {projectItems}
+                </Box>
+                <Box
+                    alignSelf="center"
+                    position='relative'
+                    _after={{
+                        content: '""',
+                        width: '65%',
+                        position: 'absolute',
+                        bg: 'themeRed',
+                        height: '5px',
+                        alignSelf: 'center',
+                        right: "0",
+                        bottom: "0"
+
+                    }}
+                    _before={{
+                        content: '""',
+                        width: '32%',
+                        position: 'absolute',
+                        bg: 'white',
+                        height: '5px',
+                        alignSelf: 'center',
+                        left: "0",
+                        bottom: "0"
+                        
+                    }}>
+                    <Heading as="p" textAlign="center" >Want to see more?</Heading>
+                </Box>
+                <Box paddingTop=".5rem" height="3rem" width="3rem" display="flex" alignSelf="center">
+                    <Image src="/svg/GitHub.svg" />
                 </Box>
             </Box>
         </>
