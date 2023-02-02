@@ -13,7 +13,16 @@ export default function NavItem({ text }: Props) {
             listStyleType="none"
             cursor="pointer"
             position={"relative"}
+            _hover={{
+                _after: {
+                    transition: "bottom .2s linear 0s, width .2s linear .2s, right .2s linear .3s",
+                    bottom: "16px",
+                    width: "100%",
+                    right: "0"
+                }
+            }}
             _after={{
+                transition: "bottom .2s linear .3s, width .2s linear .2s, right .2s linear 0s",
                 content: "''",
                 height: "4px",
                 width: "4px",
