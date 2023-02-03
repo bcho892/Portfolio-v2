@@ -103,7 +103,7 @@ export default function Navigation() {
                 zIndex="999"
                 position={'fixed'}
                 bg={'themeGrey.dark'}
-                width={'100%'}
+                width={'100vw'}
                 color={"white"}
                 height={"4rem"}
                 display={"flex"}

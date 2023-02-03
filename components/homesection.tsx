@@ -2,6 +2,7 @@ import { Box, Heading, Text, Button, useMediaQuery } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 export default function HomeSection() {
     const [smallScreen] = useMediaQuery(`(max-width: 800px)`)
+    const [extraSmallScreen] = useMediaQuery(`(max-width: 500px)`)
 
     return (
         <>
@@ -23,7 +24,7 @@ export default function HomeSection() {
                     gap={"1rem"}
 
                 >
-                    <Heading as="h1" fontSize={!smallScreen ? "9xl" : "7xl"} >Hi, I&apos;m Benson</Heading>
+                    <Heading as="h1" fontSize={extraSmallScreen ? "5xl" : smallScreen ? "7xl" : "9xl"} >Hi, I&apos;m Benson</Heading>
                     <Text
                         marginTop={"-2rem"}
                         fontWeight={"400"}
