@@ -1,6 +1,8 @@
 import { Box, Heading, Image, useMediaQuery } from "@chakra-ui/react"
 import { motion } from "framer-motion"
 
+const openInNewTab = (url: string) => window.open(url, "_blank")
+
 const mobileVersion = (
     <>
         <Box
@@ -23,14 +25,19 @@ const mobileVersion = (
                 <Box
                     cursor="pointer"
                     as={motion.div}
+                    onClick={() => openInNewTab("https://www.linkedin.com/in/benson-cho-918996234")}
                     whileHover={{ y: -2 }}
                     height="2rem" width="2rem" margin=".5rem 0">
-                    <Image alt="linkedin icon" src="/svg/LinkedIn.svg" />
+                    <Image
+
+                        alt="linkedin icon" src="/svg/LinkedIn.svg" />
                 </Box>
                 <Box height="1%"
                     width="4px"
                     bg="themeRed"></Box>
                 <Box
+                    onClick={() => openInNewTab("https://github.io/bcho892")}
+
                     cursor="pointer"
                     as={motion.div}
                     whileHover={{ y: -2 }}
@@ -76,6 +83,7 @@ const desktopVersion = (
             <Box
                 cursor="pointer"
                 as={motion.div}
+                onClick={() => openInNewTab("https://www.linkedin.com/in/benson-cho-918996234")}
                 whileHover={{ y: -2 }}
                 height="2rem" width="2rem" margin=".5rem 0">
                 <Image alt="linkedin icon" src="/svg/LinkedIn.svg" />
@@ -84,6 +92,7 @@ const desktopVersion = (
                 width="4px"
                 bg="themeRed"></Box>
             <Box
+                onClick={() => openInNewTab("https://github.com/bcho892")}
                 cursor="pointer"
                 as={motion.div}
                 whileHover={{ y: -2 }}
