@@ -16,6 +16,7 @@ const theme = extendTheme({
     styles: {
         global: (props) => ({
             body: {
+                maxW: "100vw",
                 bg: mode("themeGrey.bg", "themeGrey.bg")(props),
                 overflowX: "hidden",
                 color: "white"
