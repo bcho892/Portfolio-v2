@@ -23,7 +23,7 @@ export default function HomeSection() {
                     gap={"1rem"}
 
                 >
-                    <Heading as="h1" fontSize={!smallScreen ? "9xl" : "7xl"} >Hi, I'm Benson</Heading>
+                    <Heading as="h1" fontSize={!smallScreen ? "9xl" : "7xl"} >Hi, I&apos;m Benson</Heading>
                     <Text
                         marginTop={"-2rem"}
                         fontWeight={"400"}

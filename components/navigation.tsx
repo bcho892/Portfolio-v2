@@ -128,7 +128,7 @@ export default function Navigation() {
                         width="2rem"
                         height="2rem"
                         transform="rotate(90deg)">
-                        <Image src="/svg/Arrow.svg" />
+                        <Image alt="open mobile menu" src="/svg/Arrow.svg" />
                     </Box>
                 </>
                     : desktopMenu}
