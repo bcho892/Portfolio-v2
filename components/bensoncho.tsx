@@ -1,9 +1,24 @@
-import { Box, Image } from '@chakra-ui/react'
+import { Box, Image, keyframes } from '@chakra-ui/react'
 import { opacity } from '@/styles/presets'
+import { motion } from 'framer-motion'
 
-type Props = {}
+const choAnimationKeyframes = keyframes`
+0% { transform: translate(0,  0); }
+50%  { transform: translate(2px, 0); }
+100%   { transform: translate(0, 0); } 
+`;
 
-export default function BensonCho({ }: Props) {
+const bensonAnimationKeyframes = keyframes`
+0% { transform: translate(-10%,  0); }
+50%  { transform: translate(-10.1%, 0); }
+100%   { transform: translate(-10%, 0); } 
+`;
+
+const choAnimation = `${choAnimationKeyframes} 2s ease-in-out infinite`;
+const bensonAnimation = `${bensonAnimationKeyframes} 2s ease-in-out infinite`
+
+
+export default function BensonCho() {
     return (
         <Box
             pointerEvents="none"
@@ -18,7 +33,7 @@ export default function BensonCho({ }: Props) {
             <Box
                 transform="translateX(-10%)"
                 zIndex="-1"
-
+                animation={bensonAnimation}
                 width="140%"
                 minW="2000px"
             >
@@ -28,9 +43,10 @@ export default function BensonCho({ }: Props) {
                     transform="rotate(-30deg)" />
             </Box>
             <Box
+
+                animation={choAnimation}
                 position="absolute"
                 width="80%"
-
                 left="25%"
                 minW="1100px"
             >

@@ -7,9 +7,9 @@ type Props = {
     position?: number
 }
 
-const tech = (item: string) => {
+const tech = (item: string, key: string) => {
     return (
-        <Box userSelect="none" bg="white" width="fit-content" padding="0 10px">
+        <Box key={key} userSelect="none" bg="white" width="fit-content" padding="0 10px">
             <Text color="themeRed"
                 fontWeight="600"
             >
@@ -22,7 +22,7 @@ const tech = (item: string) => {
 const techStack = (items?: string[]) => {
     return (
         items!.map((item) => {
-            return tech(item)
+            return tech(item, item)
         })
     )
 }

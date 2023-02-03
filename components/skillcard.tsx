@@ -11,7 +11,7 @@ export default function SkillCard({ props, title, description }: Props) {
     return (
         <>
             <Box bg="themeGrey.bg"
-                padding="50px 10px"
+                padding="50px 15px"
                 display="flex"
                 flexDir="column"
                 position="relative"

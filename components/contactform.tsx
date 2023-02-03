@@ -20,11 +20,13 @@ export default function ContactForm() {
         event.preventDefault();
         setIsSubmitting(true)
         const name = event.target.name.value;
+        const subject = event.target.subject.value;
         const message = event.target.message.value;
         const email = event.target.email.value;
         const res = await fetch('https://formspree.io/f/xgeborpn', {
             body: JSON.stringify({
                 name: name,
+                subject: subject,
                 email: email,
                 message: message
             }),
@@ -49,24 +51,36 @@ export default function ContactForm() {
                 <FormControl
                     pointerEvents={isSubmitting ? "none" : "all"}
                     display="flex" flexDir="column" gap="1rem" onSubmit={() => console.log('hate')} isRequired>
-                    <Box>
-                        <Heading fontSize="xl" >Name</Heading>
-                        <Box
-                            overflow="hidden"
-                            position="relative"
-                            _after={selected}
-                        >
-                            <Input name="name" variant='contact' type='text' />
+                    <Box display="grid" gridTemplateColumns="1fr 1fr" columnGap="1rem">
+                        <Box>
+                            <Heading fontSize="xl" >Name</Heading>
+                            <Box
+                                overflow="hidden"
+                                position="relative"
+                                _after={selected}
+                            >
+                                <Input name="name" variant='contact' type='text' />
+                            </Box>
+                        </Box>
+                        <Box>
+                            <Heading fontSize="xl">Email</Heading>
+                            <Box
+                                overflow="hidden"
+                                position="relative"
+                                _after={selected}
+                            >
+                                <Input name="email" variant='contact' type='email' />
+                            </Box>
                         </Box>
                     </Box>
                     <Box>
-                        <Heading fontSize="xl">Email</Heading>
+                        <Heading fontSize="xl">Subject</Heading>
                         <Box
                             overflow="hidden"
                             position="relative"
                             _after={selected}
                         >
-                            <Input name="email" variant='contact' type='email' />
+                            <Input name="subject" variant='contact' type='text' />
                         </Box>
                     </Box>
                     <Box>

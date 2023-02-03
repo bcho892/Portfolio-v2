@@ -111,7 +111,7 @@ export default function Navigation() {
                 padding={"0 1rem"}
 
             >
-                {true ? <>
+                {smallScreen ? <>
                     <Box
                         cursor="pointer"
                         onClick={() => handleClick()}

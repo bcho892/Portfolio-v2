@@ -22,7 +22,11 @@ const theme = extendTheme({
             },
             html: {
                 scrollBehaviour: "smooth"
-            }
+            },
+            _selection: {
+                bg: "themeGrey.light"
+            },
+ 
         }),
     },
     fonts: {

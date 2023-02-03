@@ -1,5 +1,5 @@
-import { Box, Heading, Image, Text } from "@chakra-ui/react"
-import { sectionHeadingSize, opacity, centerOnBigScreen } from "@/styles/presets"
+import { Box, Heading, Image, useMediaQuery } from "@chakra-ui/react"
+import { sectionHeadingSize, opacity, centerOnBigScreen, sectionHeadingSizeMobile } from "@/styles/presets"
 import ProjectCard from "./projectcard"
 import { projects } from "@/content/projects"
 import SectionSeparator from "./sectionseparator"
@@ -11,6 +11,7 @@ const projectItems = projects.map((item, index) => {
 })
 
 export default function ProjectSection() {
+    const [smallScreen] = useMediaQuery(`(max-width: 800px)`)
     return (
         <>
             <Box
@@ -28,7 +29,7 @@ export default function ProjectSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}>
                     <Box position="absolute"
-                        left={centerOnBigScreen}
+                        left={smallScreen ? "0" : centerOnBigScreen}
                         top="30%"
                         minW="800px"
                         width="60%"
@@ -42,7 +43,7 @@ export default function ProjectSection() {
                                 src="/svg/Works.svg" />
                         </Box>
                     </Box>
-                    <Heading fontSize={sectionHeadingSize}>Featured Projects</Heading>
+                    <Heading fontSize={smallScreen ? sectionHeadingSizeMobile : sectionHeadingSize}>Featured Projects</Heading>
                     <Box display="grid" gridTemplateColumns="1fr" rowGap="4rem" padding="50px 0">
                         {projectItems}
                     </Box>
@@ -73,7 +74,7 @@ export default function ProjectSection() {
                         }}>
                         <Heading as="p" textAlign="center" >Want to see more?</Heading>
                     </Box>
-                    <Box paddingTop=".5rem" height="3rem" width="3rem" display="flex" alignSelf="center">
+                    <Box as="a" href="https://github.com/bcho892" target="_blank" cursor="pointer" paddingTop=".5rem" height="3rem" width="3rem" display="flex" alignSelf="center">
                         <Image src="/svg/GitHub.svg" />
                     </Box>
                 </Box>

@@ -12,3 +12,20 @@ html {
   flex-direction: column;
   padding: 0 8%
 }
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #D9D9D9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF3E3E;
+}
