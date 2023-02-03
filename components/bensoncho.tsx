@@ -1,4 +1,4 @@
-import { Box, Image, keyframes } from '@chakra-ui/react'
+import { Box, Image, keyframes, useMediaQuery } from '@chakra-ui/react'
 import { opacity } from '@/styles/presets'
 import { motion } from 'framer-motion'
 
@@ -21,6 +21,10 @@ const bensonAnimation = `${bensonAnimationKeyframes} 2s ease-in-out infinite`
 export default function BensonCho() {
     return (
         <Box
+            as={motion.div}
+            initial={{ opacity: 0, x: -2 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             pointerEvents="none"
             width='100vw'
             position="absolute"
@@ -35,7 +39,7 @@ export default function BensonCho() {
                 zIndex="-1"
                 animation={bensonAnimation}
                 width="140%"
-                minW="2000px"
+                minW="100vw"
             >
                 <Image
                     alt=""
@@ -50,7 +54,7 @@ export default function BensonCho() {
                 position="absolute"
                 width="80%"
                 left="25%"
-                minW="1100px"
+                minW="100vw"
             >
                 <Image
                     alt=""
