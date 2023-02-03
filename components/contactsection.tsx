@@ -29,7 +29,7 @@ export default function ContactSection() {
                     pointerEvents="none"
                     minW="700px"
                     position="absolute" left={smallScreen ? "-100px" : "0"} bottom="0" width="100%" zIndex="-1">
-                    <Image src="/svg/End.svg" />
+                    <Image alt="" src="/svg/End.svg" />
                 </Box>
             </Box>
         </>
