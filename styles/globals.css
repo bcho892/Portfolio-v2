@@ -42,7 +42,8 @@ img {
   }
 
   .container {
-    overflow-x: visible;
+    
+    overflow: visible;
   }
 
 }

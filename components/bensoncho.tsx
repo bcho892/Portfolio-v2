@@ -27,7 +27,7 @@ export default function BensonCho() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             pointerEvents="none"
-            width={smallScreen ? '50vw' : '100vw'}
+            width='100vw'
             position="absolute"
             zIndex="-1"
             top="-10rem"
@@ -40,13 +40,13 @@ export default function BensonCho() {
                 zIndex="-1"
                 animation={bensonAnimation}
                 width="140%"
-                minW="100vw"
+                minW="1600px"
             >
                 <Image
                     alt=""
                     src="/svg/Benson.svg"
                     opacity={opacity}
-                    minW="100%"
+                  
                     transform="rotate(-30deg)" />
             </Box>
             <Box
@@ -55,7 +55,7 @@ export default function BensonCho() {
                 position="absolute"
                 width="80%"
                 left="25%"
-                minW="100vw"
+                minW="1000px"
             >
                 <Image
                     alt=""
