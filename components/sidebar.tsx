@@ -94,12 +94,15 @@ const desktopVersion = (
                 width="4px"
                 bg="white"></Box>
         </Box>
+
+
         <Heading
             width="100%"
             textAlign="center"
             position="absolute"
             bottom="0"
             fontSize="md">Designed &amp; Built by Benson Cho</Heading>
+
     </>)
 
 
