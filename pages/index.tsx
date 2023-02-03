@@ -20,7 +20,7 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Benson Cho's Portfolio" />
         <meta property="og:description" content="I am a penultimate year ECE student at the University of Auckland who is interested in a broad range of topics in both engineering and tech." />
-        <meta property="og:image" content="" />
+        <meta property="og:image" content="/images/sitepreview.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation />

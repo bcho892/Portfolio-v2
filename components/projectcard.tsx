@@ -39,20 +39,22 @@ export default function ProjectCard({ data, position }: Props) {
             display="flex"
             flexDir="column"
             position="relative"
-
+            height="fit-content"
             _after={{ content: '""', position: "absolute", bottom: "0", left: "0", height: "6px", bg: "themeRed", width: "100%" }}
         >
-            <Heading position="absolute"
+            <Heading
+                position="absolute"
                 zIndex="1"
                 top="-3rem"
-                left="-1.5rem"
+                left="-2rem"
                 color="themeRed"
                 fontWeight="900"
                 fontSize="5rem"
-            >{position! + 1}</Heading>
+                userSelect="none"
+            >{position! + 1}<span style={{ color: "white" }}>.</span></Heading>
             <Box
                 margin="-20px -20px"
-                filter="brightness(0.5)"
+                filter="brightness(0.3)"
                 transition="height .75s"
                 zIndex="0"
                 height={isOpened ? "20rem" : "0"}

@@ -4,6 +4,10 @@ import { motion } from "framer-motion"
 const mobileVersion = (
     <>
         <Box
+            as={motion.div}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             color={"white"}
             position={"absolute"}
             display="flex"
@@ -41,6 +45,10 @@ const mobileVersion = (
 const desktopVersion = (
     <>
         <Box
+            as={motion.div}
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             color={"white"}
             position={"fixed"}
             display="flex"
@@ -82,6 +90,9 @@ const desktopVersion = (
                 height="2rem" width="2rem" margin=".5rem 0" >
                 <Image alt="github icon" src="/svg/GitHub.svg" />
             </Box>
+            <Box height="5%"
+                width="4px"
+                bg="white"></Box>
         </Box>
         <Heading
             width="100%"

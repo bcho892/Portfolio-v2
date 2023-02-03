@@ -30,6 +30,7 @@ const desktopMenu = (
 const mobileMenu = (open: boolean, handleClick: () => void) => (
     <>
         <Box
+
             position={"fixed"}
             color={"themeRed"}
             fontSize={"4rem"}
@@ -111,6 +112,14 @@ export default function Navigation() {
                 padding={"0 1rem"}
 
             >
+                <Box
+                    as="a"
+                    href="/"
+                    cursor="pointer"
+                    height="2rem"
+                    width="2rem">
+                    <Image src="/svg/logo.svg" alt="site logo" />
+                </Box>
                 {smallScreen ? <>
                     <Box
                         cursor="pointer"
