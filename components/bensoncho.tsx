@@ -19,6 +19,7 @@ const bensonAnimation = `${bensonAnimationKeyframes} 2s ease-in-out infinite`
 
 
 export default function BensonCho() {
+    const [smallScreen] = useMediaQuery(`(max-width: 800px)`)
     return (
         <Box
             as={motion.div}
@@ -26,7 +27,7 @@ export default function BensonCho() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             pointerEvents="none"
-            width='100vw'
+            width={smallScreen ? '50vw' : '100vw'}
             position="absolute"
             zIndex="-1"
             top="-10rem"

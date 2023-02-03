@@ -11,7 +11,8 @@ html {
   max-width: 1400px;
   display: flex;
   flex-direction: column;
-  padding: 0 8%
+  padding: 0 8%;
+  overflow: hidden;
 }
 
 img {
@@ -37,6 +38,10 @@ img {
 @media only screen and (min-width: 800px) {
   html {
     scroll-behavior: smooth;
+    overflow-x: visible;
+  }
+
+  .container {
     overflow-x: visible;
   }
 
