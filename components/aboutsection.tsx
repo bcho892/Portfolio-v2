@@ -41,11 +41,13 @@ export default function AboutSection() {
                         minW="1400px"
                     >
                         <Image
+                            alt=""
                             transform="rotate(15deg)"
                             opacity={opacity}
                             src='/svg/Skills.svg'>
                         </Image>
                         <Image
+                            alt=""
                             width="80%"
                             position="absolute"
                             top="0"
@@ -56,7 +58,7 @@ export default function AboutSection() {
                     <Box display="grid" gap="1rem" gridTemplateColumns={smallScreen ? "1fr" : "2fr 1fr"} alignItems="center">
                         <Box display="flex" flexDir="column">
                             <Heading fontSize={smallScreen ? sectionHeadingSizeMobile : sectionHeadingSize}>About Me</Heading>
-                            <Text>As of 2023, I am a penultimate year ECE student who is interested in a broad range of topics in both engineering and tech. Below are the main fields that I am interested in, in which I also try to outline the relevant skills that I have.</Text>
+                            <Text>As of 2023, I am a penultimate year ECE student at the University of Auckland who is interested in a broad range of topics in both engineering and tech. Below are the main fields that I am interested in, in which I also try to outline the relevant skills that I have.</Text>
                         </Box>
                         <Box
                             overflow="visible"

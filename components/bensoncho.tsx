@@ -37,7 +37,9 @@ export default function BensonCho() {
                 width="140%"
                 minW="2000px"
             >
-                <Image src="/svg/Benson.svg"
+                <Image
+                    alt=""
+                    src="/svg/Benson.svg"
                     opacity={opacity}
                     minW="100%"
                     transform="rotate(-30deg)" />
@@ -51,6 +53,7 @@ export default function BensonCho() {
                 minW="1100px"
             >
                 <Image
+                    alt=""
                     opacity={opacity}
                     src="/svg/Cho.svg"
                     minW="100%"

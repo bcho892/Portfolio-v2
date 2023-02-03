@@ -36,7 +36,7 @@ const SectionSeparator = ({ nextSectionName }: Props) => {
             >
 
                 <Heading fontWeight="200" fontSize={textSize} >Scroll</Heading>
-                <Image src="/svg/Arrow.svg" />
+                <Image src="/svg/Arrow.svg" alt="downwards pointing arrow" />
                 <Heading fontWeight="200" fontSize={textSize} >Down</Heading>
 
             </Box>

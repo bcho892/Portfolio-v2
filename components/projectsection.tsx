@@ -15,6 +15,7 @@ export default function ProjectSection() {
     return (
         <>
             <Box
+                overflow="visible"
                 padding="100px 0"
                 position="relative"
                 display="flex"
@@ -28,8 +29,15 @@ export default function ProjectSection() {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}>
+                    <Box position="absolute" width="80%"
+                        opacity={opacity}
+                        bottom="-15%"
+                        left="60%">
+                        <Image alt="" src="/svg/Triangle3.svg" />
+                    </Box>
+
                     <Box position="absolute"
-                        left={smallScreen ? "0" : centerOnBigScreen}
+                        left={smallScreen ? "0" : "-20%"}
                         top="30%"
                         minW="800px"
                         width="60%"
@@ -37,9 +45,15 @@ export default function ProjectSection() {
                         opacity={opacity}
                         transform="rotate(-45deg)"
                     >
-                        <Image src="/svg/My.svg" />
+                        <Box position="absolute" width="100%"
+                            transform="rotate(45deg)"
+                            top="-60%">
+                            <Image alt="" src="/svg/Triangle2.svg" />
+                        </Box>
+                        <Image alt="" src="/svg/My.svg" />
                         <Box width="200%">
                             <Image
+                                alt=""
                                 src="/svg/Works.svg" />
                         </Box>
                     </Box>
@@ -75,7 +89,7 @@ export default function ProjectSection() {
                         <Heading as="p" textAlign="center" >Want to see more?</Heading>
                     </Box>
                     <Box as="a" href="https://github.com/bcho892" target="_blank" cursor="pointer" paddingTop=".5rem" height="3rem" width="3rem" display="flex" alignSelf="center">
-                        <Image src="/svg/GitHub.svg" />
+                        <Image alt="github icon" src="/svg/GitHub.svg" />
                     </Box>
                 </Box>
                 <SectionSeparator nextSectionName="Contact" />

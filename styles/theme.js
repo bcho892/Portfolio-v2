@@ -26,7 +26,7 @@ const theme = extendTheme({
             _selection: {
                 bg: "themeGrey.light"
             },
- 
+
         }),
     },
     fonts: {
@@ -81,8 +81,11 @@ const theme = extendTheme({
                     _hover: {
                         bg: "themeRed",
                         color: "white"
-                    }
+                    },
 
+                },
+                disabled: {
+                    display: 'none'
                 },
                 'submit': {
                     borderRadius: '0',

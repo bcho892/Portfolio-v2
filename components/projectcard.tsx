@@ -42,14 +42,14 @@ export default function ProjectCard({ data, position }: Props) {
 
             _after={{ content: '""', position: "absolute", bottom: "0", left: "0", height: "6px", bg: "themeRed", width: "100%" }}
         >
-            <Text position="absolute"
+            <Heading position="absolute"
                 zIndex="1"
-                top="-2.5rem"
-                left="-2rem"
+                top="-3rem"
+                left="-1.5rem"
                 color="themeRed"
-                fontWeight="800"
+                fontWeight="900"
                 fontSize="5rem"
-            >{position! + 1}</Text>
+            >{position! + 1}</Heading>
             <Box
                 margin="-20px -20px"
                 filter="brightness(0.5)"
@@ -58,14 +58,16 @@ export default function ProjectCard({ data, position }: Props) {
                 height={isOpened ? "20rem" : "0"}
                 overflow="hidden">
                 <Image
-
-                    src="/images/studenttutors.jpg" />
+                    width="100%"
+                    alt={`${data?.name}'s project image`}
+                    src={data ? data.imageSrc : ""} />
             </Box>
             <Image position="absolute"
                 zIndex="2"
                 cursor="pointer"
                 right="20px"
                 height="1rem"
+                alt="open div arrow"
                 onClick={() => setIsOpened(!isOpened)}
                 transform={isOpened ? "" : "rotate(180deg)"}
                 src="/svg/Arrow.svg"
@@ -87,8 +89,8 @@ export default function ProjectCard({ data, position }: Props) {
                         {data!.description}
                     </Text>
                     <ButtonGroup justifyContent="flex-end">
-                        <Button variant='project'>Git</Button>
-                        <Button variant='project'>View</Button>
+                        <Button as="a" variant={data!.githubLink ? 'project' : 'disabled'} target="_blank" href={data!.githubLink ? data!.githubLink : ""}>Git</Button>
+                        <Button as="a" variant={data!.deploymentLink ? 'project' : 'disabled'} target="_blank" href={data!.deploymentLink ? data!.deploymentLink : ""}>View</Button>
                     </ButtonGroup>
                 </Box>
             </Box>

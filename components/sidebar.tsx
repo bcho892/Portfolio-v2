@@ -21,7 +21,7 @@ const mobileVersion = (
                     as={motion.div}
                     whileHover={{ y: -2 }}
                     height="2rem" width="2rem" margin=".5rem 0">
-                    <Image src="/svg/LinkedIn.svg" />
+                    <Image alt="linkedin icon" src="/svg/LinkedIn.svg" />
                 </Box>
                 <Box height="1%"
                     width="4px"
@@ -31,7 +31,7 @@ const mobileVersion = (
                     as={motion.div}
                     whileHover={{ y: -2 }}
                     height="2rem" width="2rem" margin=".5rem 0" >
-                    <Image src="/svg/GitHub.svg" />
+                    <Image alt="github icon" src="/svg/GitHub.svg" />
                 </Box>
             </Box>
             <Heading fontSize="md">Designed &amp; Built by Benson Cho</Heading>
@@ -70,7 +70,7 @@ const desktopVersion = (
                 as={motion.div}
                 whileHover={{ y: -2 }}
                 height="2rem" width="2rem" margin=".5rem 0">
-                <Image src="/svg/LinkedIn.svg" />
+                <Image alt="linkedin icon" src="/svg/LinkedIn.svg" />
             </Box>
             <Box height="1%"
                 width="4px"
@@ -80,7 +80,7 @@ const desktopVersion = (
                 as={motion.div}
                 whileHover={{ y: -2 }}
                 height="2rem" width="2rem" margin=".5rem 0" >
-                <Image src="/svg/GitHub.svg" />
+                <Image alt="github icon" src="/svg/GitHub.svg" />
             </Box>
         </Box>
         <Heading
