@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
-
+User-agent: Googlebot-Image
+Allow: /svg/logo.svg
+Disallow: /svg/
