@@ -9,7 +9,7 @@ export type Project = {
 
 const stutors: Project = {
     name: "Student Tutors",
-    description: "A fully functional buisness website designed for the startup Student Tutors. This was built using angular incorporating various integrations such as Sanity.io and Google Sheets to make it for the admins to customise and manage the buisness and content.",
+    description: "A fully functional business website designed for the startup Student Tutors. This was built using angular incorporating various integrations such as Sanity.io and Google Sheets to make it for the admins to customise and manage the buisness and content.",
     tech: ["Angular", "TypeScript"],
     imageSrc: "/images/studenttutors.jpg",
     deploymentLink: "https://stutors.co.nz"

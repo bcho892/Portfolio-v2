@@ -90,8 +90,8 @@ export default function ProjectCard({ data, position }: Props) {
                     <Text color="themeGrey.light">
                         {data!.description}
                     </Text>
-                    <ButtonGroup justifyContent="flex-end">
-                        <Button as="a" variant={data!.githubLink ? 'project' : 'disabled'} target="_blank" href={data!.githubLink ? data!.githubLink : ""}>Git</Button>
+                    <ButtonGroup justifyContent="flex-end" marginTop={smallScreen ? "10px" : ""}>
+                        <Button as="a" variant={data!.githubLink ? 'project' : 'disabled'} color="white" bg="transparent" boxShadow="0 0 0 3px white inset" target="_blank" href={data!.githubLink ? data!.githubLink : ""}>Git</Button>
                         <Button as="a" variant={data!.deploymentLink ? 'project' : 'disabled'} target="_blank" href={data!.deploymentLink ? data!.deploymentLink : ""}>View</Button>
                     </ButtonGroup>
                 </Box>

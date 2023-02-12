@@ -19,7 +19,7 @@ const skills = [{
 })
 
 export default function AboutSection() {
-    const [smallScreen] = useMediaQuery(`(max-width: 800px)`)
+    const [smallScreen] = useMediaQuery(`(max-width: 900px)`)
     return (
         <>
             <Box

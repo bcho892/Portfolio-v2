@@ -21,15 +21,15 @@ export default function HomeSection() {
             >
                 <Box display={"flex"}
                     flexDir={"column"}
-                    gap={"1rem"}
+                    gap={smallScreen ? ".4rem" : "1rem"}
 
                 >
                     <Heading as="h1" fontSize={extraSmallScreen ? "5xl" : smallScreen ? "7xl" : "9xl"} >Hi, I&apos;m Benson</Heading>
                     <Text
-                        marginTop={"-2rem"}
+                        marginTop={smallScreen ? "-1.4rem" : "-2rem"}
                         fontWeight={"400"}
                         fontSize={!smallScreen ? "3xl" : "xl"}>Welcome to my portfolio.</Text>
-                    <Button as="a" href="#About" variant={"landing"} textAlign={"left"} width={"70%"}>Read More</Button>
+                    <Button as="a" href="#About" variant={"landing"} textAlign={"left"} width={"62%"}>Read More</Button>
                 </Box>
 
             </Box>
