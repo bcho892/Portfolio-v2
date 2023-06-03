@@ -9,7 +9,13 @@ type Props = {
 export default function ArticleList({ articles }: Props) {
     return (
         <>
-            <Box display="flex" flexDir="column" gap="5rem">
+            <Box
+                display="flex"
+                flexDir="column"
+                marginBottom="5rem"
+                marginTop="2rem"
+                gap="5rem"
+            >
                 {articles.map((article) => {
                     return <ArticleCard article={article} />;
                 })}
