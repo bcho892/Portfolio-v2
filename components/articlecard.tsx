@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { boxShadow } from "@/styles/presets";
 
+import { formatDate } from "@/lib/utils";
 type Props = {
     article: {
         attributes: {
@@ -21,10 +22,6 @@ type Props = {
 const date = new Date();
 
 export default function ArticleCard({ article }: Props) {
-    const formatDate = (dateString: string) => {
-        const date = new Date(dateString);
-        return date.toLocaleString();
-    };
     const [smallScreen] = useMediaQuery(`(max-width: 800px)`);
     return (
         <Box

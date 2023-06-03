@@ -1,7 +1,7 @@
 import Head from "next/head";
 import "@fontsource/open-sans";
 import "@fontsource/bebas-neue";
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 
 import Navigation from "@/components/navigation";
 import SideBar from "@/components/sidebar";
@@ -27,7 +27,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ articles }: Props) {
-    console.log(articles);
     return (
         <>
             <Head>
@@ -54,7 +53,6 @@ export default function Home({ articles }: Props) {
                 <BlogHeading />
                 <ArticleList articles={articles.data} />
             </Box>
-            <BensonCho />
             <SideBar />
         </>
     );
