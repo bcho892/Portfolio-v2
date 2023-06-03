@@ -8,6 +8,7 @@ import SideBar from "@/components/sidebar";
 import BlogHeading from "@/components/blogheading";
 import BensonCho from "@/components/bensoncho";
 import { fetchAPI } from "@/lib/strapi";
+import ArticleList from "@/components/articlelist";
 
 type Props = {
     articles: any;
@@ -51,6 +52,7 @@ export default function Home({ articles }: Props) {
             <Navigation />
             <Box className="container" margin="auto">
                 <BlogHeading />
+                <ArticleList articles={articles.data} />
             </Box>
             <BensonCho />
             <SideBar />
