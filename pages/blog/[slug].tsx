@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import BlogHeading from "@/components/blogheading";
 import Navigation from "@/components/navigation";
 import SideBar from "@/components/sidebar";
-import { fetchAPI } from "@/lib/strapi";
-import { Box, Text } from "@chakra-ui/react";
+import { fetchAPI, getArticleDetails, getStrapiURL } from "@/lib/strapi";
+import { Box, Text, Image } from "@chakra-ui/react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 type Props = {
     article: any;
@@ -23,11 +23,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const articlesRes = await fetchAPI("/articles", {
+    const articlesRes = await getArticleDetails("/articles", {
         filters: {
             slug: params.slug,
         },
-        populate: ["image", "category", "author.picture", "blocks"],
+        populate: ["image", "category", "blocks", "deep,5"],
     });
     const categoriesRes = await fetchAPI("/categories");
 
@@ -44,11 +44,28 @@ export default function Article({ article }: Props) {
             <Navigation />
             <Box className="container">
                 <BlogHeading text={article.attributes.title} />
-                <Box flexDir="column" display="flex">
-                    {article.attributes.blocks.map((block) => {
-                        return <ReactMarkdown children={block.body} />;
-                    })}
-                </Box>
+            </Box>
+            <Box className="container">
+                {article.attributes.blocks.map((block: any) => {
+                    return (
+                        <>
+                            {block.body && (
+                                <ReactMarkdown>{block.body}</ReactMarkdown>
+                            )}
+                            {block.file && (
+                                <Image
+                                    alt={
+                                        block.file.data.attributes
+                                            .alternativeText
+                                    }
+                                    src={getStrapiURL(
+                                        block.file.data.attributes.url
+                                    )}
+                                />
+                            )}
+                        </>
+                    );
+                })}
             </Box>
             <SideBar />
         </>

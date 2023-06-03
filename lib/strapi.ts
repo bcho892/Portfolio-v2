@@ -46,6 +46,34 @@ export async function fetchAPI(path, urlParamsObject = {}, options = {}) {
     return data;
 }
 
+export async function getArticleDetails(
+    path,
+    urlParamsObject = {},
+    options = {}
+) {
+    // Merge default and user options
+    const mergedOptions = {
+        headers: {
+            "Content-Type": "application/json",
+        },
+        ...options,
+    };
+
+    // Build request URL
+    const requestUrl = `${getStrapiURL(`/api${path}?populate=deep,3`)}`;
+
+    // Trigger API call
+    const response = await fetch(requestUrl, mergedOptions);
+
+    // Handle response
+    if (!response.ok) {
+        console.error(response.statusText);
+        throw new Error(`An error occured please try again`);
+    }
+    const data = await response.json();
+    return data;
+}
+
 export function getStrapiMedia(media) {
     const { url } = media.data.attributes;
     const imageUrl = url.startsWith("/") ? getStrapiURL(url) : url;
