@@ -13,11 +13,18 @@ type Props = {
         attributes: {
             title: string;
             description: string;
+            publishedAt: string;
+            updatedAt: string;
         };
     };
 };
+const date = new Date();
 
 export default function ArticleCard({ article }: Props) {
+    const formatDate = (dateString: string) => {
+        const date = new Date(dateString);
+        return date.toLocaleString();
+    };
     const [smallScreen] = useMediaQuery(`(max-width: 800px)`);
     return (
         <Box
@@ -28,6 +35,10 @@ export default function ArticleCard({ article }: Props) {
             flexDir="column"
             position="relative"
             height="fit-content"
+            _hover={{
+                transform: "scale(1.05)",
+            }}
+            transition="transform .4s"
             _after={{
                 content: '""',
                 position: "absolute",
@@ -50,11 +61,13 @@ export default function ArticleCard({ article }: Props) {
                 <Heading bg="themeRed" padding="0 10px" width="fit-content">
                     {article.attributes.title}
                 </Heading>
-                <Box
-                    display="grid"
-                    gridTemplateColumns={smallScreen ? "1fr" : "3fr 1fr"}
-                    alignItems="flex-end"
-                >
+                <Box display="grid" alignItems="flex-end">
+                    <Text fontSize="sm">
+                        <strong>
+                            Published{" "}
+                            {formatDate(article.attributes.publishedAt)}
+                        </strong>
+                    </Text>
                     <Text>{article.attributes.description}</Text>
                 </Box>
             </Box>

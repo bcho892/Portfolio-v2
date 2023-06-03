@@ -12,11 +12,11 @@ export default function BlogHeading() {
     return (
         <>
             <Box
+                marginTop="10rem"
                 display="flex"
                 flexDir="column"
                 gap=".5rem"
                 justifySelf="center"
-                padding="170px 0"
                 color="white"
                 position="relative"
             >
