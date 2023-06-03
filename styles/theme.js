@@ -1,5 +1,5 @@
-import { extendTheme } from '@chakra-ui/react'
-import { mode } from '@chakra-ui/theme-tools'
+import { extendTheme } from "@chakra-ui/react";
+import { mode } from "@chakra-ui/theme-tools";
 
 export const formEffect = {
     content: '""',
@@ -10,7 +10,7 @@ export const formEffect = {
     left: "0",
     width: "100%",
     transition: "transform .5s",
-}
+};
 
 const theme = extendTheme({
     styles: {
@@ -19,107 +19,110 @@ const theme = extendTheme({
                 maxW: "100vw",
                 bg: mode("themeGrey.bg", "themeGrey.bg")(props),
                 overflowX: "hidden",
-                color: "white"
+                color: "white",
             },
             html: {
-                scrollBehaviour: "smooth"
+                scrollBehaviour: "smooth",
             },
             _selection: {
-                bg: "themeGrey.light"
+                bg: "themeGrey.light",
             },
 
+            h2: {
+                fontWeight: "700",
+                fontSize: "2rem",
+                fontFamily: `'Bebas Neue', sans-serif`,
+            },
         }),
     },
     fonts: {
         heading: `'Bebas Neue', sans-serif`,
-        body: `'Open Sans', sans-serif`
+        body: `'Open Sans', sans-serif`,
     },
     components: {
         Card: {
             baseStyle: {
-                boxShadow: '0 0 0 0 transparent'
+                boxShadow: "0 0 0 0 transparent",
             },
             variants: {
-                'navigation': {
-                    boxShadow: 'none',
-                    bg: 'red.300'
-                }
-            }
+                navigation: {
+                    boxShadow: "none",
+                    bg: "red.300",
+                },
+            },
         },
         Heading: {
             baseStyle: {
                 fontWeight: "200",
-            }
+            },
         },
         Textarea: {
             variants: {
-                'contact': {
+                contact: {
                     borderRadius: "0",
                     bg: "themeGrey.dark",
-                    color: "white"
-                }
-            }
+                    color: "white",
+                },
+            },
         },
         Input: {
             variants: {
-                'contact': {
+                contact: {
                     field: {
                         position: "relative",
                         borderRadius: "0",
                         bg: "themeGrey.dark",
                         color: "white",
-
-                    }
-                }
+                    },
+                },
             },
         },
         Button: {
             variants: {
-                'project': {
-                    borderRadius: '0',
-                    bg: 'white',
-                    color: 'themeGrey.dark',
+                project: {
+                    borderRadius: "0",
+                    bg: "white",
+                    color: "themeGrey.dark",
                     _hover: {
                         bg: "themeRed",
-                        color: "white"
+                        color: "white",
                     },
-
                 },
                 disabled: {
-                    display: 'none'
+                    display: "none",
                 },
-                'submit': {
-                    borderRadius: '0',
+                submit: {
+                    borderRadius: "0",
                     bg: "themeRed",
                     color: "white",
                     _hover: {
-                        bg: 'white',
-                        color: 'themeGrey.dark',
-                    }
+                        bg: "white",
+                        color: "themeGrey.dark",
+                    },
                 },
-                'landing': {
-                    justifyContent: 'flex-start',
-                    padding: '0 1rem',
-                    color: 'themeGrey.dark',
-                    bg: 'white',
-                    borderRadius: '2px',
+                landing: {
+                    justifyContent: "flex-start",
+                    padding: "0 1rem",
+                    color: "themeGrey.dark",
+                    bg: "white",
+                    borderRadius: "2px",
                     _hover: {
                         bg: "themeRed",
-                        color: "white"
-                    }
-                }
-            }
-        }
+                        color: "white",
+                    },
+                },
+            },
+        },
     },
     colors: {
         themeRed: "#FF3E3E",
         themeGrey: {
             bg: "#363636",
             dark: "#474747",
-            light: "#D9D9D9"
-        }
-    }
-})
+            light: "#D9D9D9",
+        },
+    },
+});
 
+export default theme;
 
-export default theme

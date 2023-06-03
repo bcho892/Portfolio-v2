@@ -5,7 +5,10 @@ import {
     sectionHeadingSizeMobile,
 } from "@/styles/presets";
 import { motion } from "framer-motion";
-export default function BlogHeading() {
+type Props = {
+    text: string;
+};
+export default function BlogHeading({ text = "Benson Cho - Blog" }: Props) {
     const [smallScreen] = useMediaQuery(`(max-width: 800px)`);
     const [extraSmallScreen] = useMediaQuery(`(max-width: 500px)`);
 
@@ -34,12 +37,7 @@ export default function BlogHeading() {
                         zIndex="-1"
                         minW="1400px"
                     ></Box>
-                    <Box
-                        display="grid"
-                        gap="1rem"
-                        gridTemplateColumns={smallScreen ? "1fr" : "2fr 1fr"}
-                        alignItems="center"
-                    >
+                    <Box display="grid" gap="1rem" alignItems="center">
                         <Box display="flex" flexDir="column">
                             <Heading
                                 padding="0 2rem"
@@ -49,7 +47,7 @@ export default function BlogHeading() {
                                         : sectionHeadingSize
                                 }
                             >
-                                Benson Cho - Blog
+                                {text}
                             </Heading>
                         </Box>
                         <Box

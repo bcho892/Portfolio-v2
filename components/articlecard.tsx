@@ -28,6 +28,8 @@ export default function ArticleCard({ article }: Props) {
     const [smallScreen] = useMediaQuery(`(max-width: 800px)`);
     return (
         <Box
+            as="a"
+            href={`/blog/${article.attributes.slug}`}
             padding="20px 20px"
             bg="themeGrey.bg"
             boxShadow={boxShadow}
