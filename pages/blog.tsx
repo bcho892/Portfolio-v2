@@ -4,20 +4,36 @@ import "@fontsource/bebas-neue";
 import { Box, Image } from "@chakra-ui/react";
 
 import Navigation from "@/components/navigation";
-import HomeSection from "@/components/homesection";
-import BensonCho from "@/components/bensoncho";
 import SideBar from "@/components/sidebar";
-import AboutSection from "@/components/aboutsection";
-import ProjectSection from "@/components/projectsection";
-import ContactSection from "@/components/contactsection";
-export default function Home() {
+import BlogHeading from "@/components/blogheading";
+import BensonCho from "@/components/bensoncho";
+import { fetchAPI } from "@/lib/strapi";
+
+type Props = {
+    articles: any;
+};
+
+export async function getStaticProps() {
+    const [articles] = await Promise.all([
+        fetchAPI("/articles", { populate: ["image", "category"] }),
+    ]);
+    return {
+        props: {
+            articles: articles,
+        },
+        revalidate: 1,
+    };
+}
+
+export default function Home({ articles }: Props) {
+    console.log(articles);
     return (
         <>
             <Head>
-                <title>Benson Cho - Portfolio</title>
+                <title>Benson Cho - Blog</title>
                 <meta
                     name="description"
-                    content="I am a penultimate year ECE student at the University of Auckland who is interested in a broad range of topics in both engineering and tech."
+                    content="I am a penultimate year ECE student at the University of Auckland who is interested in a broad range of topics in both engineering and tech. This is my blog"
                 />
                 <meta
                     name="viewport"
@@ -33,17 +49,8 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navigation />
-            <Box className="container" id="Home">
-                <HomeSection />
-            </Box>
-            <Box className="container" id="About" margin="auto">
-                <AboutSection />
-            </Box>
-            <Box className="container" id="Projects" margin="auto">
-                <ProjectSection />
-            </Box>
-            <Box className="container" id="Contact" margin="auto">
-                <ContactSection />
+            <Box className="container" margin="auto">
+                <BlogHeading />
             </Box>
             <BensonCho />
             <SideBar />
