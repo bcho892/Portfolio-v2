@@ -3,12 +3,14 @@ import BlogHeading from "@/components/blogheading";
 import Navigation from "@/components/navigation";
 import SideBar from "@/components/sidebar";
 import { fetchAPI, getArticleDetails, getStrapiURL } from "@/lib/strapi";
-import { Box, Text, Image } from "@chakra-ui/react";
+import { Box, Text, Image, Heading } from "@chakra-ui/react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import ArticleBody from "@/components/articlebody";
-import { formatDate } from "@/lib/utils";
+import { ArticleModel, formatDate } from "@/lib/utils";
+import Seo from "@/components/seo";
 type Props = {
-    article: any;
+    article: ArticleModel;
+    categories: any;
 };
 
 export async function getStaticPaths() {
@@ -38,13 +40,48 @@ export async function getStaticProps({ params }) {
     };
 }
 
-export default function Article({ article }: Props) {
+const categoryView = (categories) => {
+    return (
+        <>
+            {categories.data.map((category) => {
+                return (
+                    <>
+                        <Heading bg="themeRed" padding="0 1rem" as="h2">
+                            {category.attributes.name}
+                        </Heading>{" "}
+                    </>
+                );
+            })}
+        </>
+    );
+};
+
+const titleSuffix = `- Benson Cho's Blog`;
+export default function Article({ article, categories }: Props) {
     console.log(article);
     return (
         <>
-            <Navigation />
+            <Seo
+                shareImage={article.attributes.cover.data}
+                metaTitle={`${article.attributes.title} ${titleSuffix}`}
+            />
+            <Navigation disableHyperLinks />
             <Box className="container">
+                <Box
+                    as="a"
+                    href="/blog"
+                    marginTop="7rem"
+                    cursor="pointer"
+                    width="2rem"
+                    height="2rem"
+                    transform="rotate(90deg)"
+                >
+                    <Image alt="go back" src="/svg/Arrow.svg" />
+                </Box>
                 <BlogHeading text={article.attributes.title}>
+                    <Box display="flex" gap="1rem">
+                        {categoryView(categories)}
+                    </Box>
                     <Text bg="themeRed" padding="0 1rem">
                         By {article.attributes.author.data.attributes.name},
                         published {formatDate(article.attributes.publishedAt)}
@@ -54,6 +91,7 @@ export default function Article({ article }: Props) {
             <Box className="container">
                 <ArticleBody blocks={article.attributes.blocks} />
             </Box>
+
             <SideBar />
         </>
     );

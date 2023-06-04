@@ -16,7 +16,7 @@ export default function BlogHeading(props: PropsWithChildren<Props>) {
     return (
         <>
             <Box
-                marginTop="10rem"
+                marginTop="2rem"
                 display="flex"
                 flexDir="column"
                 gap=".5rem"
@@ -41,8 +41,8 @@ export default function BlogHeading(props: PropsWithChildren<Props>) {
                             >
                                 {props.text ? props.text : "Benson Cho - Blog"}
                             </Heading>
-                            {props.children}
                         </Box>
+                        {props.children}
                     </Box>
                 </Box>
             </Box>

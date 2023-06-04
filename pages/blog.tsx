@@ -27,6 +27,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ articles }: Props) {
+    console.log(articles);
     return (
         <>
             <Head>
@@ -43,16 +44,28 @@ export default function Home({ articles }: Props) {
                 <meta property="og:title" content="Benson Cho's Portfolio" />
                 <meta
                     property="og:description"
-                    content="I am a penultimate year ECE student at the University of Auckland who is interested in a broad range of topics in both engineering and tech."
+                    content="I am a penultimate year ECE student at the University of Auckland who is interested in a broad range of topics in both engineering and tech. This is my blog"
                 />
                 <meta property="og:image" content="/images/sitepreview.png" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navigation />
+            <Navigation disableHyperLinks />
             <Box className="container" margin="auto">
+                <Box
+                    as="a"
+                    href="/"
+                    marginTop="7rem"
+                    cursor="pointer"
+                    width="2rem"
+                    height="2rem"
+                    transform="rotate(90deg)"
+                >
+                    <Image alt="go back" src="/svg/Arrow.svg" />
+                </Box>
                 <BlogHeading />
                 <ArticleList articles={articles.data} />
             </Box>
+            <BensonCho isFixed />
             <SideBar />
         </>
     );

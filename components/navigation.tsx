@@ -3,33 +3,53 @@ import { Box, Text, useMediaQuery, Image } from "@chakra-ui/react";
 import NavItem from "./navitem";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { boxShadow } from "@/styles/presets";
-const navLinks = (isMobile?: boolean) => (
+
+const navLinks = (isMobile?: boolean, disableHyperLinks?: boolean) => (
     <>
-        <NavItem isMobile={isMobile} text={"Home"} />
-        <NavItem isMobile={isMobile} text={"About"} />
-        <NavItem isMobile={isMobile} text={"Projects"} />
-        <NavItem isMobile={isMobile} text={"Contact"} />
-        <NavItem isMobile={isMobile} text={"Blog"} isRedirect />
+        <NavItem
+            isMobile={isMobile}
+            text={"Home"}
+            href=""
+            isRedirect={disableHyperLinks}
+        />
+        {!disableHyperLinks && (
+            <>
+                <NavItem isMobile={isMobile} text={"About"} href="About" />
+                <NavItem
+                    isMobile={isMobile}
+                    text={"Projects"}
+                    href="Projects"
+                />
+                <NavItem isMobile={isMobile} text={"Contact"} href="Contact" />
+            </>
+        )}
+        <NavItem isMobile={isMobile} text={"Blog"} href={"Blog"} isRedirect />
     </>
 );
 
-const desktopMenu = (
-    <>
-        <Box
-            color={"themeRed"}
-            fontSize={"1.5rem"}
-            fontFamily={"Bebas Neue"}
-            width={"1400px"}
-            display={"flex"}
-            justifyContent={"flex-end"}
-            gap={"1.5rem"}
-        >
-            {navLinks()}
-        </Box>
-    </>
-);
+const desktopMenu = (disableHyperLinks: boolean) => {
+    return (
+        <>
+            <Box
+                color={"themeRed"}
+                fontSize={"1.5rem"}
+                fontFamily={"Bebas Neue"}
+                width={"1400px"}
+                display={"flex"}
+                justifyContent={"flex-end"}
+                gap={"1.5rem"}
+            >
+                {navLinks(false, disableHyperLinks)}
+            </Box>
+        </>
+    );
+};
 
-const mobileMenu = (open: boolean, handleClick: () => void) => (
+const mobileMenu = (
+    open: boolean,
+    handleClick: () => void,
+    disableHyperLinks: boolean
+) => (
     <>
         <Box
             position={"fixed"}
@@ -71,12 +91,16 @@ const mobileMenu = (open: boolean, handleClick: () => void) => (
                 +
             </Text>
 
-            {navLinks(true)}
+            {navLinks(true, disableHyperLinks)}
         </Box>
     </>
 );
 
-export default function Navigation() {
+type Props = {
+    disableHyperLinks: boolean;
+};
+
+export default function Navigation({ disableHyperLinks = false }: Props) {
     const [oldScroll, setOldScroll] = useState<number>(0);
     const [isDown, setIsDown] = useState<boolean>(false);
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -136,7 +160,7 @@ export default function Navigation() {
                         </Box>
                     </>
                 ) : (
-                    desktopMenu
+                    <>{desktopMenu(disableHyperLinks)}</>
                 )}
                 <Box
                     as={motion.div}
@@ -151,8 +175,7 @@ export default function Navigation() {
                     transformOrigin="0%"
                 ></Box>
             </Box>
-            {mobileMenu(menuOpen, handleClick)}
+            {mobileMenu(menuOpen, handleClick, disableHyperLinks)}
         </>
     );
 }
-

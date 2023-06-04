@@ -16,6 +16,13 @@ type Props = {
             description: string;
             publishedAt: string;
             updatedAt: string;
+            category: {
+                data: {
+                    attributes: {
+                        name: string;
+                    };
+                };
+            };
         };
     };
 };
@@ -63,6 +70,7 @@ export default function ArticleCard({ article }: Props) {
                 <Box display="grid" alignItems="flex-end">
                     <Text fontSize="sm">
                         <strong>
+                            {article.attributes.category.data.attributes.name} •
                             Published{" "}
                             {formatDate(article.attributes.publishedAt)}
                         </strong>

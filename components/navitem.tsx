@@ -4,16 +4,22 @@ import React from "react";
 
 type Props = {
     text: string;
+    href: string;
     isMobile?: boolean;
     isRedirect: boolean;
 };
 
-export default function NavItem({ text, isMobile, isRedirect = false }: Props) {
+export default function NavItem({
+    text,
+    href,
+    isMobile,
+    isRedirect = false,
+}: Props) {
     let desktop = !isMobile;
     return (
         <Text
             as="a"
-            href={isRedirect ? `/${text.toLowerCase()}` : `#${text}`}
+            href={isRedirect ? `/${href.toLowerCase()}` : `#${href}`}
             listStyleType="none"
             cursor="pointer"
             position={"relative"}
@@ -42,4 +48,3 @@ export default function NavItem({ text, isMobile, isRedirect = false }: Props) {
         </Text>
     );
 }
-

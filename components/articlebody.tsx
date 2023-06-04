@@ -27,9 +27,7 @@ export default function ArticleBody({ blocks }: Props) {
                                         block.file.data.attributes
                                             .alternativeText
                                     }
-                                    src={getStrapiURL(
-                                        block.file.data.attributes.url
-                                    )}
+                                    src={block.file.data.attributes.url}
                                 />
                             )}
                         </>

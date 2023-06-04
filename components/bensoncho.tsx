@@ -1,6 +1,6 @@
-import { Box, Image, keyframes, useMediaQuery } from '@chakra-ui/react'
-import { opacity } from '@/styles/presets'
-import { motion } from 'framer-motion'
+import { Box, Image, keyframes, useMediaQuery } from "@chakra-ui/react";
+import { opacity } from "@/styles/presets";
+import { motion } from "framer-motion";
 
 const choAnimationKeyframes = keyframes`
 0% { transform: translate(0,  0); }
@@ -15,11 +15,14 @@ const bensonAnimationKeyframes = keyframes`
 `;
 
 const choAnimation = `${choAnimationKeyframes} 2s ease-in-out infinite`;
-const bensonAnimation = `${bensonAnimationKeyframes} 2s ease-in-out infinite`
+const bensonAnimation = `${bensonAnimationKeyframes} 2s ease-in-out infinite`;
 
+type Props = {
+    isFixed: boolean;
+};
 
-export default function BensonCho() {
-    const [smallScreen] = useMediaQuery(`(max-width: 800px)`)
+export default function BensonCho({ isFixed = false }: Props) {
+    const [smallScreen] = useMediaQuery(`(max-width: 800px)`);
     return (
         <Box
             as={motion.div}
@@ -27,12 +30,12 @@ export default function BensonCho() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             pointerEvents="none"
-            width='100vw'
-            position="absolute"
+            width="100vw"
+            fixed
+            position={isFixed ? "fixed" : "absolute"}
             zIndex="-1"
             top="-10rem"
             height="calc(100vh + 10rem)"
-
             overflow="hidden"
         >
             <Box
@@ -46,11 +49,10 @@ export default function BensonCho() {
                     alt=""
                     src="/svg/Benson.svg"
                     opacity={opacity}
-                  
-                    transform="rotate(-30deg)" />
+                    transform="rotate(-30deg)"
+                />
             </Box>
             <Box
-
                 animation={choAnimation}
                 position="absolute"
                 width="80%"
@@ -62,8 +64,10 @@ export default function BensonCho() {
                     opacity={opacity}
                     src="/svg/Cho.svg"
                     minW="100%"
-                    transform="rotate(-30deg)" />
+                    transform="rotate(-30deg)"
+                />
             </Box>
-        </Box >
-    )
+        </Box>
+    );
 }
+

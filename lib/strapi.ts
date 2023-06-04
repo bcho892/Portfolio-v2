@@ -12,6 +12,9 @@ export function getStrapiURL(path = "") {
     }${path}`;
 }
 
+const headers = new Headers();
+headers.append("Authorization", `bearer ${process.env.STRAPI_TOKEN}`);
+headers.append("Content-Type", "application/json");
 /**
  * Helper to make GET requests to Strapi API endpoints
  * @param {string} path Path of the API route
@@ -22,9 +25,9 @@ export function getStrapiURL(path = "") {
 export async function fetchAPI(path, urlParamsObject = {}, options = {}) {
     // Merge default and user options
     const mergedOptions = {
-        headers: {
-            "Content-Type": "application/json",
-        },
+        // eslint-disable-next-line quotes
+        headers: headers,
+
         ...options,
     };
 
@@ -53,9 +56,7 @@ export async function getArticleDetails(
 ) {
     // Merge default and user options
     const mergedOptions = {
-        headers: {
-            "Content-Type": "application/json",
-        },
+        headers: headers,
         ...options,
     };
 
