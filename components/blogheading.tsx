@@ -7,7 +7,7 @@ import {
 import { motion } from "framer-motion";
 import { PropsWithChildren } from "react";
 type Props = {
-    text: string;
+    text?: string;
 };
 export default function BlogHeading(props: PropsWithChildren<Props>) {
     const [smallScreen] = useMediaQuery(`(max-width: 800px)`);
