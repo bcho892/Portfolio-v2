@@ -22,7 +22,14 @@ export default function ArticleList({ articles }: Props) {
                         return <ArticleCard key={index} article={article} />;
                     })
                 ) : (
-                    <Heading>Nothing found</Heading>
+                    <Heading
+                        bg="themeRed"
+                        width="fit-content"
+                        fontSize="xxx-large"
+                        padding="0 1rem"
+                    >
+                        Nothing found
+                    </Heading>
                 )}
             </Box>
         </>
