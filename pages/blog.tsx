@@ -9,6 +9,7 @@ import BlogHeading from "@/components/blogheading";
 import BensonCho from "@/components/bensoncho";
 import { fetchAPI } from "@/lib/strapi";
 import ArticleList from "@/components/articlelist";
+import BackButton from "@/components/backbutton";
 
 type Props = {
     articles: any;
@@ -32,24 +33,34 @@ export async function getStaticProps() {
 export const categoryView = (categories: any) => {
     return (
         <>
-            {categories.data.map((category: any) => {
-                return (
-                    <>
-                        <Heading
-                            bg="themeRed"
-                            _hover={{
-                                transform: "scale(1.05)",
-                            }}
-                            transition="transform .4s"
-                            padding="0 1rem"
-                            as="a"
-                            href={`/blog/category/${category.attributes.slug}`}
-                        >
-                            {category.attributes.name}
-                        </Heading>{" "}
-                    </>
-                );
-            })}
+            <Box
+                display="flex"
+                flexDir="column"
+                gap=".2rem"
+                alignItems="flex-end"
+            >
+                <Heading>Categories</Heading>
+                <Box>
+                    {categories.data.map((category: any) => {
+                        return (
+                            <>
+                                <Heading
+                                    bg="themeRed"
+                                    _hover={{
+                                        transform: "scale(1.05)",
+                                    }}
+                                    transition="transform .4s"
+                                    padding="0 1rem"
+                                    as="a"
+                                    href={`/blog/category/${category.attributes.slug}`}
+                                >
+                                    {category.attributes.name}
+                                </Heading>{" "}
+                            </>
+                        );
+                    })}
+                </Box>
+            </Box>
         </>
     );
 };
@@ -79,17 +90,7 @@ export default function Blog({ articles, categories }: Props) {
             </Head>
             <Navigation disableHyperLinks />
             <Box className="container" margin="auto">
-                <Box
-                    as="a"
-                    href="/"
-                    marginTop="7rem"
-                    cursor="pointer"
-                    width="2rem"
-                    height="2rem"
-                    transform="rotate(90deg)"
-                >
-                    <Image alt="go back" src="/svg/Arrow.svg" />
-                </Box>
+                <BackButton text="Portfolio" href="/" />
                 <BlogHeading>
                     <Box
                         justifySelf="flex-end"

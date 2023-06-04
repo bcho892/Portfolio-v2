@@ -8,6 +8,7 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import ArticleBody from "@/components/articlebody";
 import { ArticleModel, formatDate } from "@/lib/utils";
 import Seo from "@/components/seo";
+import BackButton from "@/components/backbutton";
 type Props = {
     article: ArticleModel;
     categories: any;
@@ -54,17 +55,7 @@ export default function Article({ article }: Props) {
                     />
                     <Navigation disableHyperLinks />
                     <Box className="container">
-                        <Box
-                            as="a"
-                            href="/blog"
-                            marginTop="7rem"
-                            cursor="pointer"
-                            width="2rem"
-                            height="2rem"
-                            transform="rotate(90deg)"
-                        >
-                            <Image alt="go back" src="/svg/Arrow.svg" />
-                        </Box>
+                        <BackButton text="All Posts" href="/blog" />
                         <BlogHeading text={article.attributes.title}>
                             <Text bg="themeRed" padding="0 1rem">
                                 By{" "}

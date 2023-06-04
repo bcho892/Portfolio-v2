@@ -10,6 +10,7 @@ import BensonCho from "@/components/bensoncho";
 import { fetchAPI } from "@/lib/strapi";
 import { categoryView } from "@/pages/blog";
 import ArticleList from "@/components/articlelist";
+import BackButton from "@/components/backbutton";
 
 type Props = {
     articles: any;
@@ -57,17 +58,7 @@ export default function Categories({ category }: Props) {
         <>
             <Navigation disableHyperLinks />
             <Box className="container" margin="auto">
-                <Box
-                    as="a"
-                    href="/blog"
-                    marginTop="7rem"
-                    cursor="pointer"
-                    width="2rem"
-                    height="2rem"
-                    transform="rotate(90deg)"
-                >
-                    <Image alt="go back" src="/svg/Arrow.svg" />
-                </Box>
+                <BackButton text="All Posts" href="/blog" />
                 <BlogHeading text={`Blog - ${category.attributes.name}`}>
                     <Box
                         justifySelf="flex-end"
