@@ -16,6 +16,7 @@ const mobileVersion = (
             flexDir="column"
             marginLeft="auto"
             alignItems="center"
+            zIndex="-1"
             justifyContent="center"
             gap=".1rem"
             bottom="0"
@@ -137,4 +138,3 @@ export default function SideBar() {
     const [smallScreen] = useMediaQuery(`(max-width: 800px)`);
     return smallScreen ? mobileVersion : desktopVersion;
 }
-
