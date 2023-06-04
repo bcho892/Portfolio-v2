@@ -18,7 +18,7 @@ const choAnimation = `${choAnimationKeyframes} 2s ease-in-out infinite`;
 const bensonAnimation = `${bensonAnimationKeyframes} 2s ease-in-out infinite`;
 
 type Props = {
-    isFixed: boolean;
+    isFixed?: boolean;
 };
 
 export default function BensonCho({ isFixed = false }: Props) {
