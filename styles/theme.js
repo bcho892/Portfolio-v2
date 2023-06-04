@@ -16,6 +16,7 @@ const theme = extendTheme({
     styles: {
         global: (props) => ({
             body: {
+                minH: "calc(100vh - 1rem)",
                 maxW: "100vw",
                 bg: mode("themeGrey.bg", "themeGrey.bg")(props),
                 overflowX: "hidden",
@@ -125,4 +126,3 @@ const theme = extendTheme({
 });
 
 export default theme;
-

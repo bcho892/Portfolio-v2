@@ -20,8 +20,9 @@ const mobileVersion = (
             gap=".1rem"
             bottom="0"
             width="100%"
+            height="100vh"
         >
-            <Box display="flex">
+            <Box display="flex" marginTop="auto">
                 <Box
                     cursor="pointer"
                     as={motion.div}
@@ -37,7 +38,7 @@ const mobileVersion = (
                 >
                     <Image alt="linkedin icon" src="/svg/LinkedIn.svg" />
                 </Box>
-                <Box height="1%" width="4px" bg="themeRed"></Box>
+                <Box height="1%" width="4px"></Box>
                 <Box
                     onClick={() => openInNewTab("https://github.io/bcho892")}
                     cursor="pointer"
