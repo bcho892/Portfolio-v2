@@ -16,7 +16,7 @@ const theme = extendTheme({
     styles: {
         global: (props) => ({
             body: {
-                minH: "calc(100vh - 1rem)",
+                minH: "calc(100vh)",
                 maxW: "100vw",
                 bg: mode("themeGrey.bg", "themeGrey.bg")(props),
                 overflowX: "hidden",
@@ -45,6 +45,9 @@ const theme = extendTheme({
                 padding: "0 1rem",
                 borderRadius: "5px",
                 bg: "themeRed",
+            },
+            pre: {
+                margin: ".5rem 0",
             },
             p: {
                 margin: ".5rem 0",
