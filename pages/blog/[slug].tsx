@@ -61,7 +61,7 @@ export default function Article({ article, categories }: Props) {
     console.log(article);
     return (
         <>
-            {article && (
+            {article && categories && (
                 <>
                     <Seo
                         shareImage={
