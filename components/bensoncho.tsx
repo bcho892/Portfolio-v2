@@ -31,7 +31,6 @@ export default function BensonCho({ isFixed = false }: Props) {
             viewport={{ once: true }}
             pointerEvents="none"
             width="100vw"
-            fixed
             position={isFixed ? "fixed" : "absolute"}
             zIndex="-1"
             top="-10rem"
@@ -70,4 +69,3 @@ export default function BensonCho({ isFixed = false }: Props) {
         </Box>
     );
 }
-
