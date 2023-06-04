@@ -51,7 +51,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Categories({ category }: Props) {
-    console.log(category);
+    //console.log(category);
     const articles = category.attributes.articles.data;
     return (
         <>
