@@ -97,7 +97,7 @@ const mobileMenu = (
 );
 
 type Props = {
-    disableHyperLinks: boolean;
+    disableHyperLinks?: boolean;
 };
 
 export default function Navigation({ disableHyperLinks = false }: Props) {
