@@ -30,9 +30,24 @@ const theme = extendTheme({
             },
 
             h2: {
-                fontWeight: "700",
+                fontWeight: "400",
                 fontSize: "2rem",
                 fontFamily: `'Bebas Neue', sans-serif`,
+            },
+            ol: {
+                padding: "0 1rem",
+            },
+            ul: {
+                padding: "0 2rem",
+            },
+            code: {
+                margin: ".5rem 0",
+                padding: "0 1rem",
+                borderRadius: "5px",
+                bg: "themeRed",
+            },
+            p: {
+                margin: ".5rem 0",
             },
         }),
     },
