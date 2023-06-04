@@ -17,7 +17,7 @@ export async function getStaticPaths() {
     const articlesRes = await fetchAPI("/articles", { fields: ["slug"] });
 
     return {
-        paths: articlesRes.data.map((article) => ({
+        paths: articlesRes.data.map((article: ArticleModel) => ({
             params: {
                 slug: article.attributes.slug,
             },
@@ -40,10 +40,10 @@ export async function getStaticProps({ params }) {
     };
 }
 
-const categoryView = (categories) => {
+const categoryView = (categories: any) => {
     return (
         <>
-            {categories.data.map((category) => {
+            {categories.data.map((category: any) => {
                 return (
                     <>
                         <Heading bg="themeRed" padding="0 1rem" as="h2">
@@ -62,7 +62,7 @@ export default function Article({ article, categories }: Props) {
     return (
         <>
             <Seo
-                shareImage={article.attributes.cover.data}
+                shareImage={article.attributes.cover?.data?.attributes?.url}
                 metaTitle={`${article.attributes.title} ${titleSuffix}`}
             />
             <Navigation disableHyperLinks />

@@ -9,6 +9,9 @@ export type ArticleModel = {
         description: string;
         publishedAt: string;
         updatedAt: string;
+        blocks: any;
+        author: any;
+        slug: string;
         cover: {
             data: {
                 attributes?: {

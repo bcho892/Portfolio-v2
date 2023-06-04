@@ -8,23 +8,9 @@ import {
 } from "@chakra-ui/react";
 import { boxShadow } from "@/styles/presets";
 
-import { formatDate } from "@/lib/utils";
+import { ArticleModel, formatDate } from "@/lib/utils";
 type Props = {
-    article: {
-        attributes: {
-            title: string;
-            description: string;
-            publishedAt: string;
-            updatedAt: string;
-            category: {
-                data: {
-                    attributes: {
-                        name: string;
-                    };
-                };
-            };
-        };
-    };
+    article: ArticleModel;
 };
 const date = new Date();
 
