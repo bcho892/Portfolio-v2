@@ -9,7 +9,6 @@ import BlogHeading from "@/components/blogheading";
 import BensonCho from "@/components/bensoncho";
 import { fetchAPI } from "@/lib/strapi";
 import ArticleList from "@/components/articlelist";
-import { categoryView } from "./blog/[slug]";
 
 type Props = {
     articles: any;
@@ -30,8 +29,29 @@ export async function getStaticProps() {
     };
 }
 
-export default function Home({ articles, categories }: Props) {
-    console.log(articles);
+export const categoryView = (categories: any) => {
+    return (
+        <>
+            {categories.data.map((category: any) => {
+                return (
+                    <>
+                        <Heading
+                            bg="themeRed"
+                            padding="0 1rem"
+                            as="a"
+                            href={`/blog/category/${category.attributes.slug}`}
+                        >
+                            {category.attributes.name}
+                        </Heading>{" "}
+                    </>
+                );
+            })}
+        </>
+    );
+};
+
+export default function Blog({ articles, categories }: Props) {
+    console.log(categories);
     return (
         <>
             <Head>

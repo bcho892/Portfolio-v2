@@ -1,5 +1,5 @@
 import { ArticleModel } from "@/lib/utils";
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import ArticleCard from "./articlecard";
 import ProjectCard from "./projectcard";
 
@@ -17,9 +17,13 @@ export default function ArticleList({ articles }: Props) {
                 marginTop="2rem"
                 gap="5rem"
             >
-                {articles.map((article: ArticleModel, index: number) => {
-                    return <ArticleCard key={index} article={article} />;
-                })}
+                {articles.length > 0 ? (
+                    articles.map((article: ArticleModel, index: number) => {
+                        return <ArticleCard key={index} article={article} />;
+                    })
+                ) : (
+                    <Heading>Nothing found</Heading>
+                )}
             </Box>
         </>
     );

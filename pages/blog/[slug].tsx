@@ -39,22 +39,6 @@ export async function getStaticProps({ params }) {
     };
 }
 
-export const categoryView = (categories: any) => {
-    return (
-        <>
-            {categories.data.map((category: any) => {
-                return (
-                    <>
-                        <Heading bg="themeRed" padding="0 1rem" as="h2">
-                            {category.attributes.name}
-                        </Heading>{" "}
-                    </>
-                );
-            })}
-        </>
-    );
-};
-
 const titleSuffix = `- Benson Cho's Blog`;
 export default function Article({ article }: Props) {
     return (
