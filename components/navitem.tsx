@@ -6,7 +6,7 @@ type Props = {
     text: string;
     href: string;
     isMobile?: boolean;
-    isRedirect: boolean;
+    isRedirect?: boolean;
 };
 
 export default function NavItem({
