@@ -22,7 +22,7 @@ export async function getStaticPaths() {
                 slug: article.attributes.slug,
             },
         })),
-        fallback: true,
+        fallback: false,
     };
 }
 
@@ -61,38 +61,46 @@ export default function Article({ article, categories }: Props) {
     console.log(article);
     return (
         <>
-            <Seo
-                shareImage={article.attributes.cover?.data?.attributes?.url}
-                metaTitle={`${article.attributes.title} ${titleSuffix}`}
-            />
-            <Navigation disableHyperLinks />
-            <Box className="container">
-                <Box
-                    as="a"
-                    href="/blog"
-                    marginTop="7rem"
-                    cursor="pointer"
-                    width="2rem"
-                    height="2rem"
-                    transform="rotate(90deg)"
-                >
-                    <Image alt="go back" src="/svg/Arrow.svg" />
-                </Box>
-                <BlogHeading text={article.attributes.title}>
-                    <Box display="flex" gap="1rem">
-                        {categoryView(categories)}
+            {article && (
+                <>
+                    <Seo
+                        shareImage={
+                            article.attributes.cover?.data?.attributes?.url
+                        }
+                        metaTitle={`${article.attributes.title} ${titleSuffix}`}
+                    />
+                    <Navigation disableHyperLinks />
+                    <Box className="container">
+                        <Box
+                            as="a"
+                            href="/blog"
+                            marginTop="7rem"
+                            cursor="pointer"
+                            width="2rem"
+                            height="2rem"
+                            transform="rotate(90deg)"
+                        >
+                            <Image alt="go back" src="/svg/Arrow.svg" />
+                        </Box>
+                        <BlogHeading text={article.attributes.title}>
+                            <Box display="flex" gap="1rem">
+                                {categoryView(categories)}
+                            </Box>
+                            <Text bg="themeRed" padding="0 1rem">
+                                By{" "}
+                                {article.attributes.author.data.attributes.name}
+                                , published{" "}
+                                {formatDate(article.attributes.publishedAt)}
+                            </Text>
+                        </BlogHeading>
                     </Box>
-                    <Text bg="themeRed" padding="0 1rem">
-                        By {article.attributes.author.data.attributes.name},
-                        published {formatDate(article.attributes.publishedAt)}
-                    </Text>
-                </BlogHeading>
-            </Box>
-            <Box className="container">
-                <ArticleBody blocks={article.attributes.blocks} />
-            </Box>
+                    <Box className="container">
+                        <ArticleBody blocks={article.attributes.blocks} />
+                    </Box>
 
-            <SideBar />
+                    <SideBar />
+                </>
+            )}
         </>
     );
 }

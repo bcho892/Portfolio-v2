@@ -63,7 +63,7 @@ export default function Home({ articles }: Props) {
                     <Image alt="go back" src="/svg/Arrow.svg" />
                 </Box>
                 <BlogHeading />
-                <ArticleList articles={articles.data} />
+                {articles && <ArticleList articles={articles.data} />}
             </Box>
             <BensonCho isFixed />
             <SideBar />
