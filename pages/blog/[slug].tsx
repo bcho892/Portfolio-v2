@@ -41,6 +41,7 @@ export async function getStaticProps({ params }) {
 
 const titleSuffix = `- Benson Cho's Blog`;
 export default function Article({ article }: Props) {
+    console.log(article);
     return (
         <>
             {article && (

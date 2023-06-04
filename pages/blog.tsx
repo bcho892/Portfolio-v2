@@ -37,6 +37,10 @@ export const categoryView = (categories: any) => {
                     <>
                         <Heading
                             bg="themeRed"
+                            _hover={{
+                                transform: "scale(1.05)",
+                            }}
+                            transition="transform .4s"
                             padding="0 1rem"
                             as="a"
                             href={`/blog/category/${category.attributes.slug}`}
