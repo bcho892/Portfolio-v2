@@ -1,36 +1,57 @@
-import { useState } from 'react'
-import { Box, Text, useMediaQuery, Image } from '@chakra-ui/react'
-import NavItem from './navitem'
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { boxShadow } from '@/styles/presets'
-const navLinks = (isMobile?: boolean) => (
-    <>
-        <NavItem isMobile={isMobile} text={"Home"} />
-        <NavItem isMobile={isMobile} text={"About"} />
-        <NavItem isMobile={isMobile} text={"Projects"} />
-        <NavItem isMobile={isMobile} text={"Contact"} />
-    </>
-)
+import { useState } from "react";
+import { Box, Text, useMediaQuery, Image } from "@chakra-ui/react";
+import NavItem from "./navitem";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { boxShadow } from "@/styles/presets";
 
-const desktopMenu = (
+const navLinks = (isMobile?: boolean, disableHyperLinks?: boolean) => (
+    <>
+        <NavItem
+            isMobile={isMobile}
+            text={"Home"}
+            href=""
+            isRedirect={disableHyperLinks}
+        />
+        {!disableHyperLinks && (
+            <>
+                <NavItem isMobile={isMobile} text={"About"} href="About" />
+                <NavItem
+                    isMobile={isMobile}
+                    text={"Projects"}
+                    href="Projects"
+                />
+                <NavItem isMobile={isMobile} text={"Contact"} href="Contact" />
+            </>
+        )}
+        <NavItem isMobile={isMobile} text={"Blog"} href={"Blog"} isRedirect />
+    </>
+);
+
+const desktopMenu = (disableHyperLinks: boolean) => {
+    return (
+        <>
+            <Box
+                color={"themeRed"}
+                fontSize={"1.5rem"}
+                fontFamily={"Bebas Neue"}
+                width={"1400px"}
+                display={"flex"}
+                justifyContent={"flex-end"}
+                gap={"1.5rem"}
+            >
+                {navLinks(false, disableHyperLinks)}
+            </Box>
+        </>
+    );
+};
+
+const mobileMenu = (
+    open: boolean,
+    handleClick: () => void,
+    disableHyperLinks: boolean
+) => (
     <>
         <Box
-            color={"themeRed"}
-            fontSize={"1.5rem"}
-            fontFamily={"Bebas Neue"}
-            width={"1400px"}
-            display={"flex"}
-            justifyContent={"flex-end"}
-            gap={"1.5rem"}>
-            {navLinks()}
-        </Box>
-    </>
-)
-
-const mobileMenu = (open: boolean, handleClick: () => void) => (
-    <>
-        <Box
-
             position={"fixed"}
             color={"themeRed"}
             fontSize={"4rem"}
@@ -51,7 +72,6 @@ const mobileMenu = (open: boolean, handleClick: () => void) => (
             transition="transform .5s"
             transform={open ? "translateX(0)" : "translateX(500px)"}
         >
-
             <Text
                 fontSize="9xl"
                 top="0"
@@ -65,73 +85,83 @@ const mobileMenu = (open: boolean, handleClick: () => void) => (
                 transition="transform .2s"
                 onClick={() => handleClick()}
                 _hover={{
-                    transform: "rotate(35deg)"
+                    transform: "rotate(35deg)",
                 }}
-            >+</Text>
+            >
+                +
+            </Text>
 
-            {navLinks(true)}
+            {navLinks(true, disableHyperLinks)}
         </Box>
     </>
-)
+);
 
-export default function Navigation() {
+type Props = {
+    disableHyperLinks?: boolean;
+};
+
+export default function Navigation({ disableHyperLinks = false }: Props) {
     const [oldScroll, setOldScroll] = useState<number>(0);
     const [isDown, setIsDown] = useState<boolean>(false);
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
     const { scrollY, scrollYProgress } = useScroll();
-    const [smallScreen] = useMediaQuery(`(max-width: 800px)`)
+    const [smallScreen] = useMediaQuery(`(max-width: 800px)`);
     const handleClick = () => {
         setMenuOpen(!menuOpen);
-    }
-
+    };
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         if (latest > oldScroll) {
-
-            setIsDown(true)
+            setIsDown(true);
         } else {
-
-            setIsDown(false)
+            setIsDown(false);
         }
-        setOldScroll(latest)
-    })
+        setOldScroll(latest);
+    });
     return (
         <>
             <Box
                 transform={isDown ? "translateY(-4rem)" : "translateY(0)"}
                 transition={"transform .5s"}
                 zIndex="999"
-                position={'fixed'}
-                bg={'themeGrey.dark'}
-                width={'100vw'}
+                position={"fixed"}
+                bg={"themeGrey.dark"}
+                width={"100vw"}
                 color={"white"}
                 height={"4rem"}
                 display={"flex"}
                 justifyContent={"center"}
                 alignItems={"center"}
                 padding={"0 1rem"}
-
             >
                 <Box
                     as="a"
                     href="/"
                     cursor="pointer"
                     height="2rem"
-                    width="2rem">
+                    width="2rem"
+                >
                     <Image src="/svg/logo.svg" alt="site logo" />
                 </Box>
-                {smallScreen ? <>
-                    <Box
-                        cursor="pointer"
-                        onClick={() => handleClick()}
-                        marginLeft="auto"
-                        width="2rem"
-                        height="2rem"
-                        transform="rotate(90deg)">
-                        <Image alt="open mobile menu" src="/svg/Arrow.svg" />
-                    </Box>
-                </>
-                    : desktopMenu}
+                {smallScreen ? (
+                    <>
+                        <Box
+                            cursor="pointer"
+                            onClick={() => handleClick()}
+                            marginLeft="auto"
+                            width="2rem"
+                            height="2rem"
+                            transform="rotate(90deg)"
+                        >
+                            <Image
+                                alt="open mobile menu"
+                                src="/svg/Arrow.svg"
+                            />
+                        </Box>
+                    </>
+                ) : (
+                    <>{desktopMenu(disableHyperLinks)}</>
+                )}
                 <Box
                     as={motion.div}
                     style={{ scaleX: scrollYProgress }}
@@ -143,11 +173,9 @@ export default function Navigation() {
                     height="2px"
                     zIndex="1001"
                     transformOrigin="0%"
-                >
-
-                </Box>
+                ></Box>
             </Box>
-            {mobileMenu(menuOpen, handleClick)}
+            {mobileMenu(menuOpen, handleClick, disableHyperLinks)}
         </>
-    )
+    );
 }
