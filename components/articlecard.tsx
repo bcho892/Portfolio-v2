@@ -67,10 +67,9 @@ export default function ArticleCard({ article }: Props) {
                         <Box display="grid" alignItems="flex-end">
                             <Text fontSize="sm">
                                 <strong>
-                                    {
+                                    {article.attributes.category.data &&
                                         article.attributes.category.data
-                                            .attributes.name
-                                    }{" "}
+                                            .attributes.name}{" "}
                                     • Published{" "}
                                     {formatDate(article.attributes.publishedAt)}
                                 </strong>

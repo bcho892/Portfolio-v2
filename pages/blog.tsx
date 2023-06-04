@@ -1,7 +1,7 @@
 import Head from "next/head";
 import "@fontsource/open-sans";
 import "@fontsource/bebas-neue";
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Heading, Image, Text } from "@chakra-ui/react";
 
 import Navigation from "@/components/navigation";
 import SideBar from "@/components/sidebar";
@@ -9,24 +9,28 @@ import BlogHeading from "@/components/blogheading";
 import BensonCho from "@/components/bensoncho";
 import { fetchAPI } from "@/lib/strapi";
 import ArticleList from "@/components/articlelist";
+import { categoryView } from "./blog/[slug]";
 
 type Props = {
     articles: any;
+    categories: any;
 };
 
 export async function getStaticProps() {
-    const [articles] = await Promise.all([
+    const [articles, categories] = await Promise.all([
         fetchAPI("/articles", { populate: ["image", "category"] }),
+        fetchAPI("/categories"),
     ]);
     return {
         props: {
             articles: articles,
+            categories: categories,
         },
         revalidate: 1,
     };
 }
 
-export default function Home({ articles }: Props) {
+export default function Home({ articles, categories }: Props) {
     console.log(articles);
     return (
         <>
@@ -62,7 +66,17 @@ export default function Home({ articles }: Props) {
                 >
                     <Image alt="go back" src="/svg/Arrow.svg" />
                 </Box>
-                <BlogHeading />
+                <BlogHeading>
+                    <Box
+                        justifySelf="flex-end"
+                        display="flex"
+                        gap="1rem"
+                        marginTop="-1.5rem"
+                        marginBottom="1rem"
+                    >
+                        {categoryView(categories)}
+                    </Box>
+                </BlogHeading>
                 {articles && <ArticleList articles={articles.data} />}
             </Box>
             <BensonCho isFixed />

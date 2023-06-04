@@ -32,15 +32,14 @@ export async function getStaticProps({ params }) {
             slug: params.slug,
         },
     });
-    const categoriesRes = await fetchAPI("/categories");
 
     return {
-        props: { article: articlesRes.data[0], categories: categoriesRes },
+        props: { article: articlesRes.data[0] },
         revalidate: 1,
     };
 }
 
-const categoryView = (categories: any) => {
+export const categoryView = (categories: any) => {
     return (
         <>
             {categories.data.map((category: any) => {
@@ -57,11 +56,10 @@ const categoryView = (categories: any) => {
 };
 
 const titleSuffix = `- Benson Cho's Blog`;
-export default function Article({ article, categories }: Props) {
-    console.log(article);
+export default function Article({ article }: Props) {
     return (
         <>
-            {article && categories && (
+            {article && (
                 <>
                     <Seo
                         shareImage={
@@ -83,12 +81,11 @@ export default function Article({ article, categories }: Props) {
                             <Image alt="go back" src="/svg/Arrow.svg" />
                         </Box>
                         <BlogHeading text={article.attributes.title}>
-                            <Box display="flex" gap="1rem">
-                                {categoryView(categories)}
-                            </Box>
                             <Text bg="themeRed" padding="0 1rem">
                                 By{" "}
-                                {article.attributes.author.data.attributes.name}
+                                {article.attributes.author.data &&
+                                    article.attributes.author.data.attributes
+                                        .name}
                                 , published{" "}
                                 {formatDate(article.attributes.publishedAt)}
                             </Text>
