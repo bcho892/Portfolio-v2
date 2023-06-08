@@ -26,7 +26,7 @@ export async function getStaticProps() {
             articles: articles,
             categories: categories,
         },
-        revalidate: 1,
+        revalidate: 60 * 60,
     };
 }
 
