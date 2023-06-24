@@ -91,10 +91,11 @@ export default function ProjectCard({ data, position }: Props) {
                 position="absolute"
                 zIndex="2"
                 cursor="pointer"
-                right="20px"
-                height="1rem"
+                right="15px"
+                maxHeight="1rem"
                 alt="open div arrow"
                 onClick={() => setIsOpened(!isOpened)}
+                objectFit="cover"
                 transform={isOpened ? "" : "rotate(180deg)"}
                 src="/svg/Arrow.svg"
                 transition="transform .5s"
@@ -151,4 +152,3 @@ export default function ProjectCard({ data, position }: Props) {
         </Box>
     );
 }
-
