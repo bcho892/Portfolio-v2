@@ -10,7 +10,7 @@ const primalPrinting: Project = {
     name: "Primal Printing",
     description:
         "A business website for the student-run printing service Primal Printing, with users being able to order and pay for coursebooks via pdf and defined packages on stripe. All order information is collated for easy access for the owners using Next.js serverless functions",
-    tech: ["Next.js", "TypeScript", "Chakra-UI"],
+    tech: ["Next.js", "TypeScript"],
     imageSrc: "/images/primalprinting.png",
     githubLink: "https://github.com/bcho892/PrimalPrinting",
     deploymentLink: "https://primalprinting.co.nz",
@@ -23,6 +23,15 @@ const stutors: Project = {
     tech: ["Angular", "TypeScript"],
     imageSrc: "/images/studenttutors.jpg",
     deploymentLink: "https://stutors.co.nz",
+};
+
+const candeez: Project = {
+    name: "Candeez",
+    description:
+        "Android app which aims to advertise an simulate a candy marketplace. Designed to follow Google's material guidelines and involves unit testing for the SQLite layer as well as a large amount of planning in the form of Figma designs and UML diagrams",
+    tech: ["Java", "SQLite", "JUnit"],
+    imageSrc: "/images/candeez.png",
+    githubLink: "https://bcho892.github.io/Candeez/",
 };
 
 const myListMaker: Project = {
@@ -46,7 +55,7 @@ const studyPlanner: Project = {
 
 export const projects: Project[] = [
     primalPrinting,
+    candeez,
     stutors,
-    myListMaker,
     studyPlanner,
 ];
