@@ -76,13 +76,13 @@ export default function ProjectCard({ data, position }: Props) {
             <Box
                 margin="-20px -20px"
                 filter="brightness(0.3)"
-                transition="height .75s"
                 zIndex="0"
-                height={isOpened ? "20rem" : "0"}
+                maxH="20rem"
                 overflow="hidden"
             >
                 <Image
-                    width="100%"
+                    width={isOpened ? "100%" : "0"}
+                    transition="width .75s"
                     alt={`${data?.name}'s project image`}
                     src={data ? data.imageSrc : ""}
                 />

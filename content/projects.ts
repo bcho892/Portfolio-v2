@@ -31,7 +31,7 @@ const candeez: Project = {
         "Android app which aims to advertise an simulate a candy marketplace. Designed to follow Google's material guidelines and involves unit testing for the SQLite layer as well as a large amount of planning in the form of Figma designs and UML diagrams",
     tech: ["Java", "SQLite", "JUnit"],
     imageSrc: "/images/candeez.png",
-    githubLink: "https://bcho892.github.io/Candeez/",
+    githubLink: "https://github.com/bcho892/Candeez/",
 };
 
 const myListMaker: Project = {
